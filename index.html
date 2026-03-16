@@ -1,233 +1,190 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Totono. | 業務が、整う。バックオフィスを、前へ。 - romu.ai</title>
-<meta name="description" content="請求・給与・在庫・雇用契約――煩雑な管理業務をAIと自動化で一気に解決するSaaSシリーズ。中小企業・士業・小売業のために設計されています。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #6b7280;
-  --color-background-primary: #ffffff;
-  --color-background-secondary: #f9fafb;
-  --color-border-secondary: #e5e7eb;
-  --color-border-tertiary: #e5e7eb;
-}
-html{scroll-behavior:smooth;}
-body{margin:0;padding:0;background:var(--color-background-primary);}
-*{box-sizing:border-box;margin:0;padding:0;}
-.site{font-family:'Noto Sans JP',sans-serif;color:var(--color-text-primary);max-width:900px;margin:0 auto;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Totono. | 業務が、整う。 - romu.ai</title>
+  <meta name="description" content="請求・給与・在庫・雇用契約――煩雑な管理業務をAIと自動化で解決するSaaSシリーズ。業種を問わず、あらゆる事業者の「あるようでなかった」に答えます。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:#F4F1EC;}
+    a{text-decoration:none;color:inherit;}
+    .site{font-family:'Noto Sans JP',sans-serif;color:#1C2B4A;max-width:900px;margin:0 auto;background:white;}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:0.5px solid #e0ddd8;}
+    .nav-logo{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:600;color:#1C2B4A;}
+    .nav-logo span{color:#B8905A;}
+    .nav-links{display:flex;gap:24px;align-items:center;}
+    .nav-link{font-size:12px;color:#777;cursor:pointer;text-decoration:none;}
+    .nav-link:hover{color:#1C2B4A;}
+    .nav-cta{background:#1C2B4A;color:white;font-size:12px;padding:8px 18px;border-radius:4px;cursor:pointer;border:none;font-family:inherit;letter-spacing:.03em;text-decoration:none;display:inline-block;}
+    .nav-cta:hover{background:#263a5e;}
+    .hero{padding:72px 40px 60px;text-align:center;}
+    .hero-title{font-family:'Shippori Mincho',serif;font-size:46px;font-weight:500;line-height:1.3;margin-bottom:20px;letter-spacing:.02em;}
+    .hero-title em{color:#B8905A;font-style:normal;}
+    .hero-sub{font-size:14px;color:#777;line-height:2;max-width:520px;margin:0 auto 28px;font-weight:300;}
+    .hero-targets{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
+    .hero-target{font-size:11px;background:#f5f4f1;border:0.5px solid #e0ddd8;color:#777;padding:4px 14px;border-radius:20px;}
+    .hero-btns{display:flex;gap:12px;justify-content:center;}
+    .btn-p{background:#1C2B4A;color:white;font-size:13px;font-weight:500;padding:12px 28px;border-radius:4px;cursor:pointer;border:none;font-family:inherit;letter-spacing:.03em;text-decoration:none;display:inline-block;}
+    .btn-p:hover{background:#263a5e;}
+    .btn-s{background:transparent;color:#1C2B4A;font-size:13px;padding:12px 28px;border-radius:4px;cursor:pointer;border:0.5px solid #ccc;font-family:inherit;text-decoration:none;display:inline-block;}
+    .btn-s:hover{border-color:#1C2B4A;}
+    .hero-domain{margin-top:18px;font-size:11px;color:#aaa;letter-spacing:.1em;}
+    .band{background:#1C2B4A;padding:18px 40px;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
+    .band-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:11px;letter-spacing:.04em;}
+    .band-dot{width:4px;height:4px;border-radius:50%;background:#B8905A;flex-shrink:0;}
+    .sl{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+    .sl-line{flex:1;height:0.5px;background:#e0ddd8;}
+    .sl-text{font-size:10px;letter-spacing:.15em;color:#B8905A;font-weight:500;white-space:nowrap;}
+    .series{padding:60px 40px 0;}
+    .series-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:60px;}
+    .sc{border:0.5px solid #e0ddd8;border-radius:12px;padding:28px;position:relative;cursor:pointer;transition:border-color .2s;}
+    .sc:hover{border-color:#1C2B4A;}
+    .sc.active{border-color:#1C2B4A;border-width:1.5px;}
+    .sc-ribbon{position:absolute;top:20px;right:20px;font-size:10px;font-weight:500;padding:3px 10px;border-radius:2px;letter-spacing:.04em;}
+    .ribbon-live{background:rgba(15,110,86,.1);color:#0F6E56;border:0.5px solid rgba(15,110,86,.25);}
+    .ribbon-soon{background:#f5f4f1;color:#777;border:0.5px solid #ccc;}
+    .sc-icon{width:38px;height:38px;border-radius:8px;background:#f5f4f1;border:0.5px solid #e0ddd8;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+    .sc-icon svg{width:17px;height:17px;stroke:#777;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+    .sc-name{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:500;margin-bottom:3px;color:#1C2B4A;}
+    .sc-sub{font-size:11px;color:#B8905A;letter-spacing:.04em;margin-bottom:12px;}
+    .sc-desc{font-size:12px;color:#777;line-height:1.8;}
+    .sc-tags{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap;}
+    .sc-tag{font-size:10px;background:rgba(28,43,74,.06);color:#1C2B4A;padding:2px 8px;border-radius:2px;}
+    .sc-price{margin-top:16px;padding-top:14px;border-top:0.5px solid #e0ddd8;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
+    .sc-price-num{font-size:20px;font-weight:700;color:#1C2B4A;}
+    .sc-price-unit{font-size:11px;color:#777;}
+    .sc-price-or{font-size:11px;color:#777;}
+    .about{background:#f5f4f1;padding:60px 40px;}
+    .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+    .about-catch{font-family:'Shippori Mincho',serif;font-size:24px;font-weight:500;line-height:1.75;margin-bottom:20px;color:#1C2B4A;}
+    .about-catch em{color:#B8905A;font-style:normal;}
+    .about-text{font-size:12.5px;color:#777;line-height:2.1;margin-bottom:24px;}
+    .about-meta{padding-top:20px;border-top:0.5px solid #e0ddd8;}
+    .about-company{font-size:13px;font-weight:500;color:#1C2B4A;margin-bottom:3px;}
+    .about-domain{font-size:12px;color:#185FA5;}
+    .services{display:flex;flex-direction:column;gap:10px;}
+    .svc{background:white;border:0.5px solid #e0ddd8;border-radius:8px;padding:18px 20px;border-left:2px solid #1C2B4A;}
+    .svc-label{font-size:10px;color:#B8905A;letter-spacing:.08em;font-weight:500;margin-bottom:6px;}
+    .svc-title{font-size:13px;font-weight:500;color:#1C2B4A;margin-bottom:4px;}
+    .svc-desc{font-size:11px;color:#777;line-height:1.7;}
+    .cta{padding:60px 40px;text-align:center;}
+    .cta-title{font-family:'Shippori Mincho',serif;font-size:28px;font-weight:500;margin-bottom:14px;color:#1C2B4A;}
+    .cta-sub{font-size:13px;color:#777;line-height:1.9;margin-bottom:32px;}
+    .cta-btns{display:flex;gap:12px;justify-content:center;}
+    .footer{background:#f5f4f1;padding:28px 40px;border-top:0.5px solid #e0ddd8;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .footer-left{display:flex;flex-direction:column;gap:4px;}
+    .footer-logo{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:600;color:#1C2B4A;}
+    .footer-logo span{color:#B8905A;}
+    .footer-company{font-size:11px;color:#777;}
+    .footer-links{display:flex;gap:20px;}
+    .footer-link{font-size:11px;color:#777;cursor:pointer;text-decoration:none;}
+    .footer-link:hover{color:#1C2B4A;}
+    .footer-copy{font-size:11px;color:#777;}
+    .footer-note{background:#f5f4f1;padding:0 40px 20px;font-size:11px;color:#aaa;}
 
-/* NAV */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:.5px solid var(--color-border-tertiary);}
-.nav-logo{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:600;color:var(--color-text-primary);text-decoration:none;}
-.nav-logo span{color:#B8905A;}
-.nav-links{display:flex;gap:24px;align-items:center;}
-.nav-link{font-size:12px;color:var(--color-text-secondary);cursor:pointer;letter-spacing:.03em;text-decoration:none;}
-.nav-link:hover{color:var(--color-text-primary);}
-.nav-cta{background:#1C2B4A;color:white;font-size:12px;padding:8px 18px;border-radius:4px;cursor:pointer;border:none;font-family:inherit;text-decoration:none;}
-.nav-cta:hover{background:#263a5e;}
-
-/* HERO */
-.hero{padding:72px 40px 64px;text-align:center;position:relative;}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--color-background-secondary);border:.5px solid var(--color-border-secondary);font-size:11px;color:var(--color-text-secondary);padding:5px 16px;border-radius:20px;margin-bottom:28px;letter-spacing:.05em;}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#B8905A;}
-.hero-title{font-family:'Shippori Mincho',serif;font-size:44px;font-weight:500;line-height:1.3;margin-bottom:20px;letter-spacing:.02em;}
-.hero-title em{color:#B8905A;font-style:normal;}
-.hero-sub{font-size:14px;color:var(--color-text-secondary);line-height:2;max-width:500px;margin:0 auto 36px;font-weight:300;}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{background:#1C2B4A;color:white;font-size:13px;font-weight:500;padding:12px 28px;border-radius:4px;cursor:pointer;border:none;font-family:inherit;letter-spacing:.03em;text-decoration:none;}
-.btn-primary:hover{background:#263a5e;}
-.btn-secondary{background:var(--color-background-primary);color:var(--color-text-primary);font-size:13px;font-weight:500;padding:12px 28px;border-radius:4px;cursor:pointer;border:.5px solid var(--color-border-secondary);font-family:inherit;text-decoration:none;}
-.btn-secondary:hover{border-color:#1C2B4A;}
-.hero-domain{margin-top:20px;font-size:11px;color:var(--color-text-secondary);letter-spacing:.08em;}
-
-/* TAGLINE BAND */
-.band{background:#1C2B4A;padding:20px 40px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
-.band-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.05em;}
-.band-dot{width:4px;height:4px;border-radius:50%;background:#B8905A;}
-
-/* SERIES */
-.series{padding:60px 40px;}
-.sl{display:flex;align-items:center;gap:12px;margin-bottom:32px;}
-.sl-line{flex:1;height:.5px;background:var(--color-border-tertiary);}
-.sl-text{font-size:10px;letter-spacing:.15em;color:#B8905A;font-weight:500;}
-.series-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:16px;}
-.sc{border:.5px solid var(--color-border-tertiary);border-radius:12px;padding:28px;position:relative;overflow:hidden;cursor:pointer;transition:border-color .2s;}
-.sc:hover{border-color:#1C2B4A;}
-.sc.active{border-color:#1C2B4A;border-width:1.5px;}
-.sc-ribbon{position:absolute;top:20px;right:20px;font-size:10px;font-weight:500;padding:3px 10px;border-radius:2px;letter-spacing:.05em;}
-.ribbon-live{background:rgba(15,110,86,.1);color:#0F6E56;border:.5px solid rgba(15,110,86,.25);}
-.ribbon-soon{background:var(--color-background-secondary);color:var(--color-text-secondary);border:.5px solid var(--color-border-secondary);}
-.sc-icon{width:40px;height:40px;border-radius:8px;background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-.sc-icon svg{width:18px;height:18px;stroke:var(--color-text-secondary);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
-.sc-name{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:500;margin-bottom:4px;color:var(--color-text-primary);}
-.sc-sub{font-size:11px;color:#B8905A;letter-spacing:.05em;margin-bottom:12px;}
-.sc-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.8;}
-.sc-tags{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap;}
-.sc-tag{font-size:10px;background:rgba(28,43,74,.06);color:#1C2B4A;padding:2px 8px;border-radius:2px;}
-.sc-price{margin-top:16px;padding-top:14px;border-top:.5px solid var(--color-border-tertiary);display:flex;align-items:baseline;gap:6px;}
-.sc-price-num{font-size:20px;font-weight:700;color:var(--color-text-primary);}
-.sc-price-unit{font-size:11px;color:var(--color-text-secondary);}
-.sc-price-or{font-size:11px;color:var(--color-text-secondary);}
-
-/* ABOUT */
-.about{background:var(--color-background-secondary);padding:64px 40px;margin:0;}
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
-.about-catch{font-family:'Shippori Mincho',serif;font-size:24px;font-weight:500;line-height:1.75;margin-bottom:20px;}
-.about-catch em{color:#B8905A;font-style:normal;}
-.about-text{font-size:12.5px;color:var(--color-text-secondary);line-height:2.1;margin-bottom:24px;}
-.about-meta{padding-top:20px;border-top:.5px solid var(--color-border-tertiary);}
-.about-company{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px;}
-.about-domain{font-size:12px;color:#185FA5;}
-.services{display:flex;flex-direction:column;gap:10px;}
-.svc{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:8px;padding:18px 20px;border-left:2px solid #1C2B4A;}
-.svc-label{font-size:10px;color:#B8905A;letter-spacing:.08em;font-weight:500;margin-bottom:6px;}
-.svc-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;}
-.svc-desc{font-size:11px;color:var(--color-text-secondary);line-height:1.7;}
-
-/* FOOTER */
-.footer{padding:32px 40px;border-top:.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.footer-logo{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:600;}
-.footer-logo span{color:#B8905A;}
-.footer-copy{font-size:11px;color:var(--color-text-secondary);}
-.footer-links{display:flex;gap:20px;}
-.footer-link{font-size:11px;color:var(--color-text-secondary);text-decoration:none;cursor:pointer;}
-.footer-link:hover{color:var(--color-text-primary);}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav{padding:16px 20px;}
-  .nav-links{gap:12px;}
-  .hero{padding:48px 20px 40px;}
-  .hero-title{font-size:28px;}
-  .hero-sub{font-size:13px;}
-  .band{padding:16px 20px;gap:20px;}
-  .series{padding:40px 20px;}
-  .series-grid{grid-template-columns:1fr;}
-  .about{padding:40px 20px;}
-  .about-inner{grid-template-columns:1fr;gap:32px;}
-  .about-catch{font-size:20px;}
-  .footer{padding:24px 20px;flex-direction:column;text-align:center;}
-}
-</style>
+    @media(max-width:768px){
+      .nav{padding:16px 20px;}
+      .nav-links{gap:12px;}
+      .hero{padding:48px 20px 40px;}
+      .hero-title{font-size:28px;}
+      .hero-sub{font-size:13px;}
+      .band{padding:16px 20px;gap:16px;}
+      .series{padding:40px 20px 0;}
+      .series-grid{grid-template-columns:1fr;}
+      .about{padding:40px 20px;}
+      .about-inner{grid-template-columns:1fr;gap:32px;}
+      .about-catch{font-size:20px;}
+      .cta{padding:40px 20px;}
+      .cta-title{font-size:22px;}
+      .footer{padding:24px 20px;flex-direction:column;text-align:center;}
+      .footer-note{padding:0 20px 16px;}
+    }
+  </style>
 </head>
 <body>
-
 <div class="site">
-
-  <!-- NAV -->
   <nav class="nav">
     <a href="/" class="nav-logo">Totono<span>.</span></a>
     <div class="nav-links">
-      <a href="#series" class="nav-link">サービス一覧</a>
-      <a href="#about" class="nav-link">会社情報</a>
-      <a href="mailto:info@romu.ai" class="nav-cta">お問い合わせ</a>
+      <a class="nav-link" href="#series">サービス一覧</a>
+      <a class="nav-link" href="#about">会社情報</a>
+      <a class="nav-link" href="#contact">お問い合わせ</a>
+      <a class="nav-cta" href="mailto:info@romu.ai">お問い合わせ</a>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-tag">合同会社グレースコンサルティング</div>
     <h1 class="hero-title">業務が、<em>整う</em>。<br>バックオフィスを、前へ。</h1>
-    <p class="hero-sub">請求・給与・在庫・雇用契約――煩雑な管理業務をAIと自動化で一気に解決するSaaSシリーズ。中小企業・士業・小売業のために設計されています。</p>
+    <p class="hero-sub">請求・給与・在庫・雇用契約――煩雑な管理業務をAIと自動化で解決するSaaSシリーズ。業種を問わず、あらゆる事業者の「あるようでなかった」に答えます。</p>
+    <div class="hero-targets">
+      <div class="hero-target">士業・コンサルティング</div>
+      <div class="hero-target">小売・EC事業者</div>
+      <div class="hero-target">製造販売業</div>
+      <div class="hero-target">卸売業</div>
+      <div class="hero-target">複数事業者</div>
+      <div class="hero-target">飲食・食品業</div>
+      <div class="hero-target">サービス業</div>
+    </div>
     <div class="hero-btns">
-      <a href="#series" class="btn-primary">サービスを見る</a>
-      <a href="mailto:info@romu.ai" class="btn-secondary">お問い合わせ</a>
+      <a class="btn-p" href="#series">サービスを見る</a>
+      <a class="btn-s" href="mailto:info@romu.ai">お問い合わせ</a>
     </div>
     <div class="hero-domain">romu.ai</div>
   </section>
 
-  <!-- BAND -->
   <div class="band">
     <div class="band-item"><div class="band-dot"></div>楽天・Amazon・カラーミー API連携</div>
     <div class="band-item"><div class="band-dot"></div>インボイス制度対応</div>
     <div class="band-item"><div class="band-dot"></div>Stripe決済連携</div>
+    <div class="band-item"><div class="band-dot"></div>月4回締日・週締め対応</div>
     <div class="band-item"><div class="band-dot"></div>初期チューニング込み</div>
   </div>
 
-  <!-- SERIES -->
   <section class="series" id="series">
     <div class="sl"><div class="sl-text">TOTONO SERIES</div><div class="sl-line"></div></div>
     <div class="series-grid">
-      <a href="/seikyu.html" class="sc active" style="text-decoration:none;color:inherit;">
+      <a href="/seikyu.html" class="sc active">
         <div class="sc-ribbon ribbon-live">提供中</div>
         <div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
         <div class="sc-name">Totono-SeikYu</div>
         <div class="sc-sub">請求・売上管理システム</div>
-        <div class="sc-desc">見積から入金回収まで全工程をカバー。EC売上の自動取込、月4回締日設定、定期請求の完全自動化。</div>
-        <div class="sc-tags">
-          <div class="sc-tag">楽天連携</div>
-          <div class="sc-tag">Amazon連携</div>
-          <div class="sc-tag">Stripe決済</div>
-          <div class="sc-tag">承認フロー</div>
-        </div>
-        <div class="sc-price">
-          <div class="sc-price-num">&yen;29,000</div>
-          <div class="sc-price-unit">/月〜</div>
-          <div class="sc-price-or">&nbsp;または&nbsp;</div>
-          <div class="sc-price-num">&yen;900,000</div>
-          <div class="sc-price-unit">買い切り</div>
-        </div>
+        <div class="sc-desc">見積から入金回収まで全工程をカバー。EC売上の自動取込、月4回締日設定、定期請求の完全自動化、Stripe決済連携まで。</div>
+        <div class="sc-tags"><div class="sc-tag">楽天連携</div><div class="sc-tag">Amazon連携</div><div class="sc-tag">Stripe決済</div><div class="sc-tag">承認フロー</div><div class="sc-tag">週締め対応</div></div>
+        <div class="sc-price"><div class="sc-price-num">¥29,000</div><div class="sc-price-unit">/月〜（税別）</div><div class="sc-price-or">&nbsp;または&nbsp;</div><div class="sc-price-num">¥900,000</div><div class="sc-price-unit">買い切り（税別）</div></div>
       </a>
-
-      <div class="sc">
+      <div class="sc active">
         <div class="sc-ribbon ribbon-live">提供中</div>
         <div class="sc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <div class="sc-name">Totono-Kyuyo</div>
+        <div class="sc-name">Totono-Meisai</div>
         <div class="sc-sub">給与明細配信システム</div>
-        <div class="sc-desc">給与明細をペーパーレスで安全に配信。従業員ごとの明細発行・送付・確認をワンストップで。</div>
-        <div class="sc-tags">
-          <div class="sc-tag">ペーパーレス</div>
-          <div class="sc-tag">電子配信</div>
-          <div class="sc-tag">マイナンバー対応</div>
-        </div>
-        <div class="sc-price">
-          <div class="sc-price-num">&yen;29,000</div>
-          <div class="sc-price-unit">/月〜</div>
-        </div>
+        <div class="sc-desc">給与明細をペーパーレスで安全に配信。台帳出力対応。サポートプランで初期設定もサポート。</div>
+        <div class="sc-tags"><div class="sc-tag">ペーパーレス</div><div class="sc-tag">電子配信</div><div class="sc-tag">台帳出力</div></div>
+        <div class="sc-price"><div class="sc-price-num">¥1,100</div><div class="sc-price-unit">/月・30名まで（税別・サポートなし）</div><div class="sc-price-or">&nbsp;または&nbsp;</div><div class="sc-price-num">¥5,500</div><div class="sc-price-unit">/月（税別・サポートあり）</div></div>
       </div>
-
-      <div class="sc">
-        <div class="sc-ribbon ribbon-soon">近日公開</div>
+      <div class="sc active">
+        <div class="sc-ribbon ribbon-live">提供中</div>
         <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-        <div class="sc-name">Totono-Zaiko</div>
-        <div class="sc-sub">在庫・売上集計システム</div>
-        <div class="sc-desc">商品ごとの在庫と売上をリアルタイムで把握。複数チャネルの在庫をひとつの画面で一元管理。</div>
-        <div class="sc-tags">
-          <div class="sc-tag">リアルタイム集計</div>
-          <div class="sc-tag">CSV連携</div>
-          <div class="sc-tag">多店舗対応</div>
-        </div>
-        <div class="sc-price">
-          <div class="sc-price-unit" style="font-size:13px;color:var(--color-text-secondary);">料金は公開時にご案内</div>
-        </div>
+        <div class="sc-name">Totono-Rental</div>
+        <div class="sc-sub">レンタル・在庫管理システム</div>
+        <div class="sc-desc">レンタカー・整備工場・レンタル業全般に対応。予約サイト連動込み。汎用型で業種を選ばない。</div>
+        <div class="sc-tags"><div class="sc-tag">予約サイト連動</div><div class="sc-tag">レンタカー対応</div><div class="sc-tag">整備工場対応</div><div class="sc-tag">汎用型</div></div>
+        <div class="sc-price"><div class="sc-price-num">¥28,000</div><div class="sc-price-unit">/月〜（税別）</div><div class="sc-price-or">&nbsp;または&nbsp;</div><div class="sc-price-num">¥3,000,000</div><div class="sc-price-unit">買い切り（税別）</div></div>
       </div>
-
-      <div class="sc">
+      <div class="sc active">
         <div class="sc-ribbon ribbon-live">提供中</div>
         <div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="sc-name">Totono-Keiyaku</div>
         <div class="sc-sub">雇用契約書SaaS</div>
-        <div class="sc-desc">雇用契約書の作成・電子署名・保管をデジタル化。法改正への対応も自動で。人事担当者の手間を大幅削減。</div>
-        <div class="sc-tags">
-          <div class="sc-tag">電子署名</div>
-          <div class="sc-tag">法改正対応</div>
-          <div class="sc-tag">テンプレート付き</div>
-        </div>
-        <div class="sc-price">
-          <div class="sc-price-num">&yen;29,000</div>
-          <div class="sc-price-unit">/月〜</div>
-        </div>
+        <div class="sc-desc">雇用契約書の作成・電子署名・保管をデジタル化。法改正への対応も自動で。</div>
+        <div class="sc-tags"><div class="sc-tag">電子署名</div><div class="sc-tag">法改正対応</div><div class="sc-tag">テンプレート付き</div></div>
+        <div class="sc-price"><div class="sc-price-num">¥1,900</div><div class="sc-price-unit">/月〜（税別・利用人数による従量課金）</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="sl"><div class="sl-text">ABOUT</div><div class="sl-line"></div></div>
     <div class="about-inner">
@@ -240,37 +197,36 @@ body{margin:0;padding:0;background:var(--color-background-primary);}
         </div>
       </div>
       <div class="services">
-        <div class="svc">
-          <div class="svc-label">SERVICE 01</div>
-          <div class="svc-title">労務管理</div>
-          <div class="svc-desc">社会保険労務士と提携し、雇用契約・社会保険・勤怠管理など労務業務を一括サポート。</div>
-        </div>
-        <div class="svc">
-          <div class="svc-label">SERVICE 02</div>
-          <div class="svc-title">バックオフィス請負</div>
-          <div class="svc-desc">税理士と連携し、記帳・決算から経理業務の構築・運用まで対応。</div>
-        </div>
-        <div class="svc">
-          <div class="svc-label">SERVICE 03</div>
-          <div class="svc-title">業務改善・収益改善コンサルティング</div>
-          <div class="svc-desc">20年の現場経験をもとに、業務フローの見直しとコスト構造の改善で収益体質を変える。つぶれた会社ゼロが自慢。</div>
-        </div>
+        <div class="svc"><div class="svc-label">SERVICE 01</div><div class="svc-title">労務管理</div><div class="svc-desc">社会保険労務士と提携し、雇用契約・社会保険・勤怠管理など労務業務を一括サポート。</div></div>
+        <div class="svc"><div class="svc-label">SERVICE 02</div><div class="svc-title">バックオフィス請負</div><div class="svc-desc">税理士と連携し、記帳・決算から経理業務の構築・運用まで対応。</div></div>
+        <div class="svc"><div class="svc-label">SERVICE 03</div><div class="svc-title">業務改善・収益改善コンサルティング</div><div class="svc-desc">20年の現場経験をもとに、業務フローの見直しとコスト構造の改善で収益体質を変える。つぶれた会社ゼロが自慢。</div></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-logo">Totono<span>.</span> by romu.ai</div>
-    <div class="footer-links">
-      <a href="#" class="footer-link">プライバシーポリシー</a>
-      <a href="#" class="footer-link">利用規約</a>
-      <a href="mailto:info@romu.ai" class="footer-link">お問い合わせ</a>
+  <section class="cta" id="contact">
+    <div class="sl"><div class="sl-text">CONTACT</div><div class="sl-line"></div></div>
+    <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+    <p class="cta-sub">デモのご案内・料金のご相談・導入前のヒアリングなど、<br>お気軽にお問い合わせください。</p>
+    <div class="cta-btns">
+      <a class="btn-p" href="mailto:info@romu.ai">お問い合わせ</a>
+      <a class="btn-s" href="mailto:info@romu.ai?subject=デモのご案内希望">デモを見る</a>
     </div>
-    <div class="footer-copy">&copy; 合同会社グレースコンサルティング</div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-logo">Totono<span>.</span> by romu.ai</div>
+      <div class="footer-company">合同会社グレースコンサルティング</div>
+    </div>
+    <div class="footer-links">
+      <a class="footer-link" href="#">プライバシーポリシー</a>
+      <a class="footer-link" href="#">利用規約</a>
+      <a class="footer-link" href="mailto:info@romu.ai">お問い合わせ</a>
+    </div>
+    <div class="footer-copy">© 合同会社グレースコンサルティング</div>
   </footer>
-
+  <div class="footer-note">※ 表示価格はすべて税別です。</div>
 </div>
-
 </body>
 </html>
