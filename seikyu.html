@@ -177,6 +177,121 @@ body{margin:0;padding:0;background:var(--color-background-primary);}
 .cbtn{background:#1C2B4A;color:white;font-size:12px;font-weight:500;padding:10px 22px;border-radius:4px;cursor:pointer;border:none;letter-spacing:.03em;text-decoration:none;font-family:inherit;}
 .cbtn:hover{background:#263a5e;}
 
+/* DEMO */
+@keyframes demo-progress{from{width:0}to{width:100%}}
+@keyframes demo-fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes demo-pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,144,90,.4)}50%{box-shadow:0 0 0 6px rgba(184,144,90,0)}}
+@keyframes demo-blink{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes demo-cursor{0%{opacity:0}30%{opacity:1}50%{opacity:1;transform:translate(0,0)}70%{opacity:1;transform:translate(3px,2px)}100%{opacity:0}}
+@keyframes demo-typing{from{width:0}to{width:100%}}
+@keyframes demo-highlight-pulse{0%,100%{border-color:rgba(184,144,90,.3);background:rgba(184,144,90,.05)}50%{border-color:rgba(184,144,90,.8);background:rgba(184,144,90,.12)}}
+.demo-window{border-radius:10px;overflow:hidden;border:.5px solid #d1d5db;margin-bottom:12px;box-shadow:0 4px 24px rgba(0,0,0,.1);position:relative;}
+.demo-titlebar{background:#e5e7eb;padding:8px 14px;display:flex;align-items:center;gap:10px;position:relative;}
+.demo-dots{display:flex;gap:5px;}
+.demo-dots span{width:10px;height:10px;border-radius:50%;}
+.demo-dots span:nth-child(1){background:#ef4444;}
+.demo-dots span:nth-child(2){background:#f59e0b;}
+.demo-dots span:nth-child(3){background:#22c55e;}
+.demo-url{font-size:11px;color:#6b7280;background:white;padding:3px 14px;border-radius:4px;flex:1;text-align:center;letter-spacing:.03em;}
+.demo-live{display:flex;align-items:center;gap:5px;font-size:10px;color:#B8905A;font-weight:600;letter-spacing:.05em;}
+.demo-live-dot{width:7px;height:7px;border-radius:50%;background:#B8905A;animation:demo-blink 1.2s ease-in-out infinite;}
+.demo-progress-bar{position:absolute;bottom:0;left:0;height:2px;background:rgba(184,144,90,.15);width:100%;}
+.demo-progress-fill{height:100%;background:#B8905A;animation:demo-progress 5s linear;}
+.demo-scene .demo-anim{opacity:0;animation:demo-fadeUp .5s ease forwards;}
+.demo-scene .demo-anim:nth-child(1){animation-delay:.1s}
+.demo-scene .demo-anim:nth-child(2){animation-delay:.3s}
+.demo-scene .demo-anim:nth-child(3){animation-delay:.5s}
+.demo-scene .demo-anim:nth-child(4){animation-delay:.7s}
+.demo-scene .demo-anim:nth-child(5){animation-delay:.9s}
+.demo-app{display:flex;height:420px;background:#F4F1EC;}
+.demo-sidebar{width:170px;background:#1C2B4A;padding:0;flex-shrink:0;overflow-y:auto;}
+.demo-side-title{padding:16px 14px 12px;font-family:'Shippori Mincho',serif;font-size:13px;color:white;border-bottom:1px solid rgba(255,255,255,.1);}
+.demo-side-title span{color:#B8905A;}
+.demo-nav-item{padding:9px 14px;font-size:11px;color:rgba(255,255,255,.7);cursor:pointer;border-left:3px solid transparent;transition:all .2s;}
+.demo-nav-item:hover{color:white;background:rgba(255,255,255,.05);}
+.demo-nav-item.active{background:#B8905A;color:#1C2B4A;font-weight:700;border-left-color:#F4F1EC;}
+.demo-main{flex:1;padding:20px 24px;overflow-y:auto;}
+.demo-scene{display:none;}
+.demo-page-title{font-size:16px;font-weight:700;color:#1C2B4A;margin-bottom:16px;}
+.demo-stat-row{display:flex;gap:10px;margin-bottom:14px;}
+.demo-stat{flex:1;background:white;border-radius:8px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.demo-stat-label{font-size:10px;color:#777;font-weight:600;margin-bottom:4px;}
+.demo-stat-val{font-size:20px;font-weight:700;color:#1C2B4A;}
+.demo-stat-val.gold{color:#B8905A;}
+.demo-stat-val.red{color:#C53030;}
+.demo-stat-sub{font-size:10px;color:#999;margin-top:2px;}
+.demo-card{background:white;border-radius:8px;padding:16px 18px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+.demo-card-title{font-size:12px;font-weight:700;color:#1C2B4A;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #e8e2da;}
+.demo-table{width:100%;border-collapse:collapse;font-size:10.5px;}
+.demo-table th{padding:6px 8px;background:#F7EEE0;color:#1C2B4A;font-weight:700;text-align:left;border-bottom:2px solid #B8905A;font-size:10px;}
+.demo-table td{padding:6px 8px;border-bottom:1px solid #e8e2da;color:#333;}
+.demo-table td.r,.demo-table th.r{text-align:right;}
+.demo-table td.hl{color:#B8905A;font-weight:700;}
+.demo-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:9px;font-weight:700;}
+.demo-badge.green{background:#d4edda;color:#2D6A4F;}
+.demo-badge.gold{background:#fff3cd;color:#856404;}
+.demo-badge.red{background:#f8d7da;color:#C53030;}
+.demo-badge.blue{background:#d0e4ff;color:#004085;}
+.demo-badge.navy{background:#1C2B4A;color:white;}
+.demo-form-row{display:flex;gap:10px;margin-bottom:10px;}
+.demo-field{flex:1;}
+.demo-field label{display:block;font-size:9px;color:#777;font-weight:600;margin-bottom:3px;}
+.demo-input,.demo-select{padding:6px 10px;border:1px solid #e8e2da;border-radius:5px;font-size:11px;background:white;color:#333;width:100%;box-sizing:border-box;}
+.demo-select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23999'/%3E%3C/svg%3E") no-repeat right 8px center;padding-right:22px;}
+.demo-highlight-box{background:rgba(28,43,74,.06);border:1.5px solid rgba(28,43,74,.2);border-radius:8px;padding:12px 14px;margin:10px 0;animation:demo-highlight-pulse 2s ease-in-out infinite;}
+.demo-highlight-title{font-size:11px;font-weight:700;color:#1C2B4A;margin-bottom:8px;}
+.demo-closing-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.demo-closing-tag{padding:4px 10px;border-radius:3px;font-size:10px;background:rgba(184,144,90,.15);color:#1C2B4A;font-weight:600;}
+.demo-closing-tag.active{background:#B8905A;color:white;}
+.demo-highlight-note{font-size:10px;color:#B8905A;font-weight:500;}
+.demo-note{font-size:10px;color:#999;margin-top:8px;line-height:1.6;}
+.demo-action-btn{background:#1C2B4A;color:white;padding:3px 10px;border-radius:4px;font-size:9px;font-weight:600;cursor:default;animation:demo-pulse 2s ease-in-out infinite;}
+.demo-convert-arrow{text-align:center;margin:6px 0;font-size:22px;color:#B8905A;animation:demo-blink 1.5s ease-in-out infinite;}
+.demo-convert-label{font-size:11px;font-weight:700;color:#B8905A;}
+.demo-invoice-preview{padding:10px 14px;border:1px solid #e8e2da;border-radius:6px;background:#fafafa;}
+.demo-inv-header{text-align:center;margin-bottom:8px;}
+.demo-inv-row{display:flex;justify-content:space-between;margin-bottom:6px;}
+.demo-inv-client{font-size:12px;font-weight:700;color:#1C2B4A;border-bottom:1.5px solid #1C2B4A;padding-bottom:1px;}
+.demo-inv-meta{font-size:10px;color:#777;text-align:right;line-height:1.7;}
+.demo-inv-total{text-align:right;font-size:13px;color:#1C2B4A;}
+.demo-btn-approve{background:#2D6A4F;color:white;padding:3px 10px;border-radius:4px;font-size:9px;font-weight:600;margin-right:4px;cursor:default;animation:demo-pulse 2s ease-in-out infinite;}
+.demo-btn-reject{background:#C53030;color:white;padding:3px 10px;border-radius:4px;font-size:9px;font-weight:600;cursor:default;}
+.demo-approval-flow{display:flex;align-items:center;justify-content:center;gap:0;margin-top:8px;}
+.demo-flow-step{text-align:center;padding:8px 14px;border-radius:6px;font-size:10px;font-weight:600;color:#1C2B4A;background:#e8e2da;line-height:1.5;}
+.demo-flow-step span{display:block;font-size:9px;font-weight:400;color:#777;}
+.demo-flow-step.done{background:#d4edda;color:#2D6A4F;}
+.demo-flow-step.current{background:#B8905A;color:white;}
+.demo-flow-step.current span{color:rgba(255,255,255,.7);}
+.demo-flow-arrow{padding:0 6px;color:#999;font-size:14px;}
+.demo-ec-cards{display:flex;gap:10px;margin-bottom:12px;}
+.demo-ec-card{flex:1;border-radius:8px;padding:14px;color:white;position:relative;overflow:hidden;transition:transform .3s;}
+.demo-ec-card:hover{transform:scale(1.03);}
+.demo-ec-card.rakuten{background:linear-gradient(135deg,#bf0000,#e60012);}
+.demo-ec-card.amazon{background:linear-gradient(135deg,#232f3e,#37475a);}
+.demo-ec-card.colorme{background:linear-gradient(135deg,#ff6b35,#ff8c42);}
+.demo-ec-logo{font-size:12px;font-weight:700;margin-bottom:2px;}
+.demo-ec-status{font-size:9px;opacity:.7;margin-bottom:6px;}
+.demo-ec-amount{font-size:18px;font-weight:700;}
+.demo-ec-period{font-size:9px;opacity:.6;margin-top:2px;}
+.demo-controls{display:flex;gap:6px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
+.demo-ctrl-btn{padding:6px 12px;border:1px solid #d1d5db;border-radius:4px;font-size:10px;cursor:pointer;background:white;color:#6b7280;font-family:'Noto Sans JP',sans-serif;transition:all .2s;}
+.demo-ctrl-btn:hover{border-color:#1C2B4A;color:#1C2B4A;}
+.demo-ctrl-btn.active{background:#1C2B4A;color:white;border-color:#1C2B4A;}
+
+@media(max-width:768px){
+  .demo-app{flex-direction:column;height:auto;min-height:480px;}
+  .demo-sidebar{width:100%;display:flex;overflow-x:auto;padding:0;flex-shrink:0;}
+  .demo-side-title{display:none;}
+  .demo-nav-item{white-space:nowrap;padding:8px 12px;border-left:none;border-bottom:3px solid transparent;font-size:10px;}
+  .demo-nav-item.active{border-bottom-color:#F4F1EC;border-left:none;}
+  .demo-stat-row{flex-direction:column;}
+  .demo-form-row{flex-direction:column;}
+  .demo-ec-cards{flex-direction:column;}
+  .demo-approval-flow{flex-wrap:wrap;gap:4px;}
+  .demo-controls{gap:4px;}
+  .demo-ctrl-btn{font-size:9px;padding:5px 8px;}
+}
+
 /* FOOTER */
 .footer{max-width:900px;margin:0 auto;padding:32px 40px;border-top:.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:'Noto Sans JP',sans-serif;}
 .footer-logo{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:600;}
@@ -268,6 +383,307 @@ body{margin:0;padding:0;background:var(--color-background-primary);}
     <div class="cb-text"><strong>ワンクリック変換</strong> — 見積書→納品書→請求書を1クリックで変換。二重入力ゼロ・転記ミスゼロで業務を加速します。</div>
     <div class="cb-badge">自動変換対応</div>
   </div>
+
+  <!-- DEMO SECTION -->
+  <div class="sl" style="margin-top:12px;"><div class="sl-text">LIVE DEMO</div><div class="sl-line"></div></div>
+  <div style="text-align:center;margin-bottom:14px;">
+    <div style="font-family:'Shippori Mincho',serif;font-size:18px;font-weight:500;color:#1C2B4A;margin-bottom:6px;">実際の操作画面をご覧ください</div>
+    <div style="font-size:11.5px;color:#6b7280;line-height:1.8;">主要機能を自動再生でご紹介します。画面下のボタンで各機能に切り替えできます。</div>
+  </div>
+
+  <div class="demo-window">
+    <div class="demo-titlebar">
+      <div class="demo-dots"><span></span><span></span><span></span></div>
+      <div class="demo-url">seikyu-app.vercel.app</div>
+      <div class="demo-live"><span class="demo-live-dot"></span>操作デモ再生中</div>
+      <div class="demo-progress-bar"><div class="demo-progress-fill" id="demoProgress"></div></div>
+    </div>
+    <div class="demo-app">
+      <div class="demo-sidebar">
+        <div class="demo-side-title">Tonos<span>-SeikYu</span></div>
+        <div class="demo-nav-item" data-scene="0">📊 売上概況</div>
+        <div class="demo-nav-item" data-scene="1">🏢 取引先管理</div>
+        <div class="demo-nav-item" data-scene="2">💲 取引先別単価</div>
+        <div class="demo-nav-item" data-scene="3">📦 納品書一覧</div>
+        <div class="demo-nav-item" data-scene="4">📅 月締め管理</div>
+        <div class="demo-nav-item" data-scene="5">⏳ 承認待ち</div>
+        <div class="demo-nav-item" data-scene="6">📈 売上管理</div>
+      </div>
+      <div class="demo-main">
+        <!-- Scene 0: Dashboard -->
+        <div class="demo-scene" data-index="0">
+          <div class="demo-page-title demo-anim">📊 売上概況ダッシュボード</div>
+          <div class="demo-stat-row demo-anim">
+            <div class="demo-stat"><div class="demo-stat-label">今月売上</div><div class="demo-stat-val">&yen;4,280,000</div><div class="demo-stat-sub">前月比 +12.3%</div></div>
+            <div class="demo-stat"><div class="demo-stat-label">未入金残高</div><div class="demo-stat-val gold">&yen;1,560,000</div><div class="demo-stat-sub">3件の請求書</div></div>
+            <div class="demo-stat"><div class="demo-stat-label">延滞アラート</div><div class="demo-stat-val red">2件</div><div class="demo-stat-sub">30日超過</div></div>
+          </div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">直近の請求書</div>
+            <table class="demo-table">
+              <thead><tr><th>請求番号</th><th>取引先</th><th>金額</th><th>ステータス</th></tr></thead>
+              <tbody>
+                <tr><td>INV-202603-001</td><td>山田商事株式会社</td><td class="r">&yen;880,000</td><td><span class="demo-badge green">入金済</span></td></tr>
+                <tr><td>INV-202603-002</td><td>鈴木製作所</td><td class="r">&yen;560,000</td><td><span class="demo-badge gold">未入金</span></td></tr>
+                <tr><td>INV-202603-003</td><td>田中食品株式会社</td><td class="r">&yen;1,200,000</td><td><span class="demo-badge red">延滞</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Scene 1: Client Management - Closing Days -->
+        <div class="demo-scene" data-index="1">
+          <div class="demo-page-title demo-anim">🏢 取引先管理</div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">取引先編集 — 山田商事株式会社</div>
+            <div class="demo-form-row">
+              <div class="demo-field"><label>取引先名</label><div class="demo-input">山田商事株式会社</div></div>
+              <div class="demo-field"><label>担当事業部</label><div class="demo-select">第一営業部</div></div>
+            </div>
+            <div class="demo-form-row">
+              <div class="demo-field"><label>メールアドレス</label><div class="demo-input">yamada@example.co.jp</div></div>
+              <div class="demo-field"><label>送付方法</label><div class="demo-select">メール送付</div></div>
+            </div>
+            <div class="demo-highlight-box">
+              <div class="demo-highlight-title">締日設定（月4回まで自由設定）</div>
+              <div class="demo-closing-tags">
+                <span class="demo-closing-tag active">5日締め</span>
+                <span class="demo-closing-tag active">15日締め</span>
+                <span class="demo-closing-tag active">20日締め</span>
+                <span class="demo-closing-tag active">末日締め</span>
+              </div>
+              <div class="demo-highlight-note">→ 締日ごとに自動で請求書を生成・承認フロー・メール送信まで実行</div>
+            </div>
+            <div class="demo-form-row">
+              <div class="demo-field"><label>承認モード</label><div class="demo-select">自動承認 → 自動送信</div></div>
+              <div class="demo-field"><label>送信予定日</label><div class="demo-select">締日の翌営業日</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 2: Client-specific Pricing -->
+        <div class="demo-scene" data-index="2">
+          <div class="demo-page-title demo-anim">💲 取引先別単価</div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">取引先ごとに異なる単価を設定</div>
+            <table class="demo-table">
+              <thead><tr><th>商品名</th><th>標準単価</th><th>山田商事</th><th>鈴木製作所</th><th>田中食品</th></tr></thead>
+              <tbody>
+                <tr><td>A4コピー用紙 500枚</td><td class="r">&yen;380</td><td class="r hl">&yen;350</td><td class="r hl">&yen;360</td><td class="r">&yen;380</td></tr>
+                <tr><td>トナーカートリッジ 黒</td><td class="r">&yen;8,500</td><td class="r hl">&yen;7,800</td><td class="r">&yen;8,500</td><td class="r hl">&yen;8,200</td></tr>
+                <tr><td>OAクリーナー</td><td class="r">&yen;1,200</td><td class="r">&yen;1,200</td><td class="r hl">&yen;1,100</td><td class="r hl">&yen;1,050</td></tr>
+                <tr><td>ファイルボックス 10個入</td><td class="r">&yen;2,800</td><td class="r hl">&yen;2,500</td><td class="r hl">&yen;2,600</td><td class="r">&yen;2,800</td></tr>
+              </tbody>
+            </table>
+            <div class="demo-note">※ 取引先ごとの特別単価を設定すると、納品書作成時に自動適用されます</div>
+          </div>
+        </div>
+
+        <!-- Scene 3: Delivery → Invoice conversion -->
+        <div class="demo-scene" data-index="3">
+          <div class="demo-page-title demo-anim">📦 納品書一覧</div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">納品書一覧</div>
+            <table class="demo-table">
+              <thead><tr><th>伝票番号</th><th>取引先</th><th>売上日</th><th>金額</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>DEL-202603-001</td><td>山田商事株式会社</td><td>2026-03-15</td><td class="r">&yen;445,500</td>
+                  <td><span class="demo-action-btn">→ 請求書に変換</span></td>
+                </tr>
+                <tr>
+                  <td>DEL-202603-002</td><td>鈴木製作所</td><td>2026-03-18</td><td class="r">&yen;233,200</td>
+                  <td><span class="demo-action-btn">→ 請求書に変換</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo-convert-arrow demo-anim">
+            <div class="demo-convert-label">ワンクリックで請求書に変換</div>
+          </div>
+          <div class="demo-card demo-anim" style="border-left:3px solid #B8905A;">
+            <div class="demo-card-title" style="color:#B8905A;">自動生成された請求書</div>
+            <div class="demo-invoice-preview">
+              <div class="demo-inv-header">
+                <div><strong style="font-size:14px;letter-spacing:4px;border:1.5px solid #1C2B4A;padding:4px 16px;">請　求　書</strong></div>
+              </div>
+              <div class="demo-inv-row">
+                <div><span class="demo-inv-client">山田商事株式会社 御中</span></div>
+                <div class="demo-inv-meta">請求番号：INV-202603-004<br>支払期限：2026-04-30</div>
+              </div>
+              <div class="demo-inv-total">合計金額：<strong>&yen;445,500</strong>（税込）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 4: Monthly Closing -->
+        <div class="demo-scene" data-index="4">
+          <div class="demo-page-title demo-anim">📅 月締め管理</div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">2026年3月 — 締日別処理状況</div>
+            <table class="demo-table">
+              <thead><tr><th>締日</th><th>対象期間</th><th>対象取引先</th><th>請求額合計</th><th>ステータス</th></tr></thead>
+              <tbody>
+                <tr><td><span class="demo-badge navy">5日締め</span></td><td>3/1〜3/5</td><td>2社</td><td class="r">&yen;680,000</td><td><span class="demo-badge green">送信済</span></td></tr>
+                <tr><td><span class="demo-badge navy">15日締め</span></td><td>3/6〜3/15</td><td>3社</td><td class="r">&yen;1,240,000</td><td><span class="demo-badge green">送信済</span></td></tr>
+                <tr><td><span class="demo-badge navy">20日締め</span></td><td>3/16〜3/20</td><td>1社</td><td class="r">&yen;445,500</td><td><span class="demo-badge gold">承認待ち</span></td></tr>
+                <tr><td><span class="demo-badge navy">末日締め</span></td><td>3/21〜3/31</td><td>4社</td><td class="r">&yen;2,100,000</td><td><span class="demo-badge blue">処理予定</span></td></tr>
+              </tbody>
+            </table>
+            <div class="demo-note">※ 締日到来時にCronで自動処理 → 承認フロー → 送信予定日に自動送信</div>
+          </div>
+        </div>
+
+        <!-- Scene 5: Approval Workflow -->
+        <div class="demo-scene" data-index="5">
+          <div class="demo-page-title demo-anim">⏳ 承認待ち</div>
+          <div class="demo-card demo-anim">
+            <div class="demo-card-title">承認待ち請求書</div>
+            <table class="demo-table">
+              <thead><tr><th>請求番号</th><th>取引先</th><th>金額</th><th>締日</th><th>操作</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>INV-202603-005</td><td>佐藤工業株式会社</td><td class="r">&yen;445,500</td><td>20日締め</td>
+                  <td>
+                    <span class="demo-btn-approve">承認</span>
+                    <span class="demo-btn-reject">差戻</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>INV-202603-006</td><td>高橋電機</td><td class="r">&yen;198,000</td><td>20日締め</td>
+                  <td>
+                    <span class="demo-btn-approve">承認</span>
+                    <span class="demo-btn-reject">差戻</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="demo-approval-flow demo-anim">
+            <div class="demo-flow-step done">締日到来<br><span>自動生成</span></div>
+            <div class="demo-flow-arrow">→</div>
+            <div class="demo-flow-step current">承認待ち<br><span>管理者確認</span></div>
+            <div class="demo-flow-arrow">→</div>
+            <div class="demo-flow-step">メール送信<br><span>自動送付</span></div>
+            <div class="demo-flow-arrow">→</div>
+            <div class="demo-flow-step">入金確認<br><span>残高管理</span></div>
+          </div>
+        </div>
+
+        <!-- Scene 6: EC Sales Integration -->
+        <div class="demo-scene" data-index="6">
+          <div class="demo-page-title demo-anim">📈 売上管理 — EC売上連携</div>
+          <div class="demo-ec-cards demo-anim">
+            <div class="demo-ec-card rakuten">
+              <div class="demo-ec-logo">楽天市場</div>
+              <div class="demo-ec-status">API連携中</div>
+              <div class="demo-ec-amount">&yen;1,850,000</div>
+              <div class="demo-ec-period">2026年3月 自動同期</div>
+            </div>
+            <div class="demo-ec-card amazon">
+              <div class="demo-ec-logo">Amazon</div>
+              <div class="demo-ec-status">API連携中</div>
+              <div class="demo-ec-amount">&yen;2,340,000</div>
+              <div class="demo-ec-period">2026年3月 自動同期</div>
+            </div>
+            <div class="demo-ec-card colorme">
+              <div class="demo-ec-logo">カラーミー</div>
+              <div class="demo-ec-status">API連携中</div>
+              <div class="demo-ec-amount">&yen;680,000</div>
+              <div class="demo-ec-period">2026年3月 自動同期</div>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-title">売上サマリ（日別）</div>
+            <table class="demo-table">
+              <thead><tr><th>日付</th><th>楽天</th><th>Amazon</th><th>カラーミー</th><th>BtoB</th><th>合計</th></tr></thead>
+              <tbody>
+                <tr><td>3/25</td><td class="r">&yen;68,000</td><td class="r">&yen;92,000</td><td class="r">&yen;24,000</td><td class="r">&yen;445,500</td><td class="r" style="font-weight:700;">&yen;629,500</td></tr>
+                <tr><td>3/26</td><td class="r">&yen;55,000</td><td class="r">&yen;78,000</td><td class="r">&yen;18,500</td><td class="r">&yen;0</td><td class="r" style="font-weight:700;">&yen;151,500</td></tr>
+                <tr><td>3/27</td><td class="r">&yen;72,000</td><td class="r">&yen;105,000</td><td class="r">&yen;31,000</td><td class="r">&yen;233,200</td><td class="r" style="font-weight:700;">&yen;441,200</td></tr>
+              </tbody>
+            </table>
+            <div class="demo-note">※ 毎日9:00（JST）にCronで楽天・Amazon・カラーミーの売上を自動取得</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-controls">
+    <button class="demo-ctrl-btn" data-scene="0">売上概況</button>
+    <button class="demo-ctrl-btn" data-scene="1">締日設定</button>
+    <button class="demo-ctrl-btn" data-scene="2">取引先別単価</button>
+    <button class="demo-ctrl-btn" data-scene="3">書類変換</button>
+    <button class="demo-ctrl-btn" data-scene="4">月締め</button>
+    <button class="demo-ctrl-btn" data-scene="5">承認フロー</button>
+    <button class="demo-ctrl-btn" data-scene="6">EC連携</button>
+  </div>
+
+  <script>
+  (function(){
+    let current = 0;
+    const total = 7;
+    let timer;
+    const scenes = document.querySelectorAll('.demo-scene');
+    const navItems = document.querySelectorAll('.demo-nav-item');
+    const ctrlBtns = document.querySelectorAll('.demo-ctrl-btn');
+    const progressFill = document.getElementById('demoProgress');
+
+    function restartAnimations(scene) {
+      var anims = scene.querySelectorAll('.demo-anim');
+      anims.forEach(function(el) {
+        el.style.animation = 'none';
+        el.offsetHeight;
+        el.style.animation = '';
+      });
+    }
+
+    function restartProgress() {
+      progressFill.style.animation = 'none';
+      progressFill.offsetHeight;
+      progressFill.style.animation = 'demo-progress 5s linear';
+    }
+
+    function show(idx) {
+      current = idx;
+      scenes.forEach(function(s, i) {
+        s.style.display = i === idx ? 'block' : 'none';
+      });
+      navItems.forEach(function(n, i) {
+        n.classList.toggle('active', i === idx);
+      });
+      ctrlBtns.forEach(function(b, i) {
+        b.classList.toggle('active', i === idx);
+      });
+      restartAnimations(scenes[idx]);
+      restartProgress();
+    }
+
+    function startAuto() {
+      clearInterval(timer);
+      timer = setInterval(function() { show((current + 1) % total); }, 5000);
+    }
+
+    navItems.forEach(function(n) {
+      n.addEventListener('click', function() {
+        show(parseInt(n.dataset.scene));
+        startAuto();
+      });
+    });
+
+    ctrlBtns.forEach(function(b) {
+      b.addEventListener('click', function() {
+        show(parseInt(b.dataset.scene));
+        startAuto();
+      });
+    });
+
+    show(0);
+    startAuto();
+  })();
+  </script>
+  <!-- END DEMO SECTION -->
 
   <div class="sl"><div class="sl-text">KEY DIFFERENTIATOR</div><div class="sl-line"></div></div>
   <div class="closing-box">

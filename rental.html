@@ -106,6 +106,76 @@
     .footer-link:hover{color:#1C2B4A;}
     .footer-copy{font-size:11px;color:#777;}
 
+    /* DEMO */
+    @keyframes rt-progress{from{width:0}to{width:100%}}
+    @keyframes rt-fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes rt-blink{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes rt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.3)}50%{box-shadow:0 0 0 5px rgba(59,130,246,0)}}
+    .rt-window{border-radius:10px;overflow:hidden;border:.5px solid #e0ddd8;margin-bottom:12px;box-shadow:0 4px 24px rgba(0,0,0,.12);position:relative;}
+    .rt-titlebar{background:#1e293b;padding:7px 14px;display:flex;align-items:center;gap:10px;position:relative;}
+    .rt-dots{display:flex;gap:5px;}
+    .rt-dots span{width:9px;height:9px;border-radius:50%;}
+    .rt-dots span:nth-child(1){background:#ef4444;}
+    .rt-dots span:nth-child(2){background:#f59e0b;}
+    .rt-dots span:nth-child(3){background:#22c55e;}
+    .rt-url{font-size:10px;color:#64748b;background:#0f172a;padding:3px 14px;border-radius:3px;flex:1;text-align:center;}
+    .rt-live{display:flex;align-items:center;gap:5px;font-size:9px;color:#3b82f6;font-weight:600;}
+    .rt-live-dot{width:6px;height:6px;border-radius:50%;background:#3b82f6;animation:rt-blink 1.2s ease-in-out infinite;}
+    .rt-pbar{position:absolute;bottom:0;left:0;height:2px;background:rgba(59,130,246,.15);width:100%;}
+    .rt-pfill{height:100%;background:#3b82f6;animation:rt-progress 5s linear;}
+    .rt-app{display:flex;height:400px;background:#020617;}
+    .rt-sidebar{width:155px;background:#0f172a;padding:0;flex-shrink:0;border-right:1px solid #1e293b;}
+    .rt-side-title{padding:14px 12px 10px;font-size:13px;font-weight:700;color:white;border-bottom:1px solid #1e293b;}
+    .rt-nav-item{padding:8px 12px;font-size:10.5px;color:#64748b;cursor:pointer;border-left:2px solid transparent;transition:all .2s;}
+    .rt-nav-item:hover{color:#cbd5e1;background:rgba(255,255,255,.03);}
+    .rt-nav-item.active{background:rgba(59,130,246,.1);color:#3b82f6;font-weight:700;border-left-color:#3b82f6;}
+    .rt-main{flex:1;padding:16px 20px;overflow-y:auto;color:#f8fafc;}
+    .rt-scene{display:none;}
+    .rt-scene .rt-anim{opacity:0;animation:rt-fadeUp .5s ease forwards;}
+    .rt-scene .rt-anim:nth-child(1){animation-delay:.1s}
+    .rt-scene .rt-anim:nth-child(2){animation-delay:.3s}
+    .rt-scene .rt-anim:nth-child(3){animation-delay:.5s}
+    .rt-scene .rt-anim:nth-child(4){animation-delay:.7s}
+    .rt-ptitle{font-size:15px;font-weight:700;color:white;margin-bottom:12px;}
+    .rt-stats{display:flex;gap:8px;margin-bottom:12px;}
+    .rt-stat{flex:1;background:#1e293b;border-radius:6px;padding:10px 12px;border:.5px solid #334155;}
+    .rt-stat-label{font-size:9px;color:#64748b;margin-bottom:3px;}
+    .rt-stat-val{font-size:18px;font-weight:700;color:white;}
+    .rt-stat-val.blue{color:#3b82f6;}
+    .rt-stat-val.green{color:#22c55e;}
+    .rt-stat-val.amber{color:#fbbf24;}
+    .rt-stat-val.red{color:#ef4444;}
+    .rt-card{background:#1e293b;border-radius:6px;padding:12px 14px;margin-bottom:10px;border:.5px solid #334155;}
+    .rt-card-title{font-size:10px;font-weight:700;color:#94a3b8;margin-bottom:8px;padding-bottom:5px;border-bottom:.5px solid #334155;letter-spacing:.05em;}
+    .rt-tbl{width:100%;border-collapse:collapse;font-size:10px;}
+    .rt-tbl th{padding:5px 6px;background:#0f172a;color:#94a3b8;font-weight:600;text-align:left;border-bottom:1px solid #334155;font-size:9px;}
+    .rt-tbl td{padding:5px 6px;border-bottom:.5px solid #1e293b;color:#cbd5e1;}
+    .rt-tbl td.r{text-align:right;}
+    .rt-badge{display:inline-block;padding:1px 7px;border-radius:3px;font-size:8px;font-weight:700;}
+    .rt-badge.green{background:rgba(34,197,94,.15);color:#22c55e;border:.5px solid rgba(34,197,94,.3);}
+    .rt-badge.blue{background:rgba(59,130,246,.15);color:#3b82f6;border:.5px solid rgba(59,130,246,.3);}
+    .rt-badge.amber{background:rgba(251,191,36,.15);color:#fbbf24;border:.5px solid rgba(251,191,36,.3);}
+    .rt-badge.red{background:rgba(239,68,68,.15);color:#ef4444;border:.5px solid rgba(239,68,68,.3);}
+    .rt-badge.gray{background:rgba(148,163,184,.1);color:#94a3b8;border:.5px solid rgba(148,163,184,.2);}
+    .rt-gantt{margin-bottom:10px;}
+    .rt-gantt-header{display:flex;border-bottom:.5px solid #334155;padding-bottom:4px;margin-bottom:4px;}
+    .rt-gantt-label{width:90px;font-size:9px;color:#64748b;flex-shrink:0;}
+    .rt-gantt-days{flex:1;display:flex;}
+    .rt-gantt-day{flex:1;text-align:center;font-size:8px;color:#475569;}
+    .rt-gantt-day.today{color:#3b82f6;font-weight:700;}
+    .rt-gantt-row{display:flex;align-items:center;margin-bottom:3px;}
+    .rt-gantt-car{width:90px;font-size:9px;color:#cbd5e1;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .rt-gantt-bars{flex:1;display:flex;height:16px;position:relative;}
+    .rt-gantt-cell{flex:1;border-right:.5px solid #1e293b;background:#0f172a;}
+    .rt-gantt-block{position:absolute;height:12px;top:2px;border-radius:2px;font-size:7px;color:white;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .rt-gantt-block.rented{background:#3b82f6;}
+    .rt-gantt-block.reserved{background:#fbbf24;color:#1a1a1a;}
+    .rt-gantt-block.maint{background:#64748b;}
+    .rt-controls{display:flex;gap:5px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
+    .rt-ctrl-btn{padding:5px 12px;border:.5px solid #e0ddd8;border-radius:4px;font-size:10px;cursor:pointer;background:white;color:#777;font-family:'Noto Sans JP',sans-serif;transition:all .2s;}
+    .rt-ctrl-btn:hover{border-color:#1C2B4A;color:#1C2B4A;}
+    .rt-ctrl-btn.active{background:#1C2B4A;color:white;border-color:#1C2B4A;}
+
     @media(max-width:768px){
       .nav{padding:16px 20px;}
       .hero{padding:36px 24px 32px;border-radius:0;}
@@ -118,6 +188,15 @@
       .pg{grid-template-columns:1fr;}
       .hp-box{flex-direction:column;}
       .footer{padding:24px 20px;flex-direction:column;text-align:center;}
+      .rt-app{flex-direction:column;height:auto;min-height:440px;}
+      .rt-sidebar{width:100%;display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid #1e293b;}
+      .rt-side-title{display:none;}
+      .rt-nav-item{white-space:nowrap;padding:7px 10px;border-left:none;border-bottom:2px solid transparent;font-size:9px;}
+      .rt-nav-item.active{border-left:none;border-bottom-color:#3b82f6;}
+      .rt-stats{flex-wrap:wrap;}
+      .rt-stat{min-width:calc(50% - 4px);}
+      .rt-controls{gap:4px;}
+      .rt-ctrl-btn{font-size:9px;padding:4px 8px;}
     }
   </style>
 </head>
@@ -159,17 +238,221 @@
     <div class="proof-grid">
       <div class="proof">
         <div class="proof-label">CASE 01</div>
-        <div class="proof-title">レンタカー会社への<br>導入実績</div>
+        <div class="proof-title">レンタカー会社での<br>利用実績</div>
         <div class="proof-desc">車両の貸出・返却・在庫管理・予約サイト連動をワンシステムで実現。管理コストを大幅に削減。</div>
-        <div class="proof-badge">導入実績あり</div>
+        <div class="proof-badge">利用実績あり</div>
       </div>
       <div class="proof">
         <div class="proof-label">CASE 02</div>
-        <div class="proof-title">自動車整備工場への<br>導入実績</div>
+        <div class="proof-title">自動車整備工場での<br>利用実績</div>
         <div class="proof-desc">車両管理・入出庫管理・顧客管理を一元化。「痒い所に手が届く」と現場から高評価。</div>
-        <div class="proof-badge">導入実績あり</div>
+        <div class="proof-badge">利用実績あり</div>
       </div>
     </div>
+
+    <!-- DEMO -->
+    <div class="sl"><div class="sl-text">LIVE DEMO</div><div class="sl-line"></div></div>
+    <div style="text-align:center;margin-bottom:14px;">
+      <div style="font-family:'Shippori Mincho',serif;font-size:18px;font-weight:500;color:#1C2B4A;margin-bottom:4px;">実際の管理画面をご覧ください</div>
+      <div style="font-size:11px;color:#777;line-height:1.8;">主要機能を自動再生でご紹介します</div>
+    </div>
+    <div class="rt-window">
+      <div class="rt-titlebar">
+        <div class="rt-dots"><span></span><span></span><span></span></div>
+        <div class="rt-url">rental.romu.ai</div>
+        <div class="rt-live"><span class="rt-live-dot"></span>デモ再生中</div>
+        <div class="rt-pbar"><div class="rt-pfill" id="rtProgress"></div></div>
+      </div>
+      <div class="rt-app">
+        <div class="rt-sidebar">
+          <div class="rt-side-title">Tonos-Rental</div>
+          <div class="rt-nav-item" data-scene="0">📊 稼働表</div>
+          <div class="rt-nav-item" data-scene="1">📋 予約管理</div>
+          <div class="rt-nav-item" data-scene="2">🚗 貸出管理</div>
+          <div class="rt-nav-item" data-scene="3">🔧 車両管理</div>
+          <div class="rt-nav-item" data-scene="4">👤 顧客管理</div>
+        </div>
+        <div class="rt-main">
+
+          <!-- Scene 0: Gantt Dashboard -->
+          <div class="rt-scene" data-index="0">
+            <div class="rt-ptitle rt-anim">📊 稼働表</div>
+            <div class="rt-stats rt-anim">
+              <div class="rt-stat"><div class="rt-stat-label">本日出発</div><div class="rt-stat-val blue">3件</div></div>
+              <div class="rt-stat"><div class="rt-stat-label">本日返却</div><div class="rt-stat-val green">2件</div></div>
+              <div class="rt-stat"><div class="rt-stat-label">承認待ち</div><div class="rt-stat-val amber">1件</div></div>
+              <div class="rt-stat"><div class="rt-stat-label">延滞中</div><div class="rt-stat-val red">1件</div></div>
+            </div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">車両稼働ガントチャート（14日間）</div>
+              <div class="rt-gantt">
+                <div class="rt-gantt-header">
+                  <div class="rt-gantt-label">車両</div>
+                  <div class="rt-gantt-days">
+                    <div class="rt-gantt-day">25</div><div class="rt-gantt-day">26</div><div class="rt-gantt-day today">27</div><div class="rt-gantt-day">28</div><div class="rt-gantt-day">29</div><div class="rt-gantt-day">30</div><div class="rt-gantt-day">31</div>
+                    <div class="rt-gantt-day">1</div><div class="rt-gantt-day">2</div><div class="rt-gantt-day">3</div><div class="rt-gantt-day">4</div><div class="rt-gantt-day">5</div><div class="rt-gantt-day">6</div><div class="rt-gantt-day">7</div>
+                  </div>
+                </div>
+                <div class="rt-gantt-row">
+                  <div class="rt-gantt-car">札幌 300 あ 1234</div>
+                  <div class="rt-gantt-bars">
+                    <div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div>
+                    <div class="rt-gantt-block rented" style="left:0;width:35.7%;">貸出中</div>
+                    <div class="rt-gantt-block reserved" style="left:50%;width:21.4%;">予約</div>
+                  </div>
+                </div>
+                <div class="rt-gantt-row">
+                  <div class="rt-gantt-car">札幌 500 い 5678</div>
+                  <div class="rt-gantt-bars">
+                    <div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div>
+                    <div class="rt-gantt-block rented" style="left:7.1%;width:28.5%;">貸出中</div>
+                  </div>
+                </div>
+                <div class="rt-gantt-row">
+                  <div class="rt-gantt-car">札幌 300 う 9012</div>
+                  <div class="rt-gantt-bars">
+                    <div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div>
+                    <div class="rt-gantt-block maint" style="left:14.2%;width:14.2%;">整備</div>
+                    <div class="rt-gantt-block reserved" style="left:42.8%;width:28.5%;">予約</div>
+                  </div>
+                </div>
+                <div class="rt-gantt-row">
+                  <div class="rt-gantt-car">札幌 500 え 3456</div>
+                  <div class="rt-gantt-bars">
+                    <div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div><div class="rt-gantt-cell"></div>
+                    <div class="rt-gantt-block reserved" style="left:21.4%;width:35.7%;">予約</div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px;font-size:8px;color:#64748b;margin-top:4px;">
+                <span><span style="display:inline-block;width:10px;height:6px;background:#3b82f6;border-radius:1px;margin-right:3px;"></span>貸出中</span>
+                <span><span style="display:inline-block;width:10px;height:6px;background:#fbbf24;border-radius:1px;margin-right:3px;"></span>予約</span>
+                <span><span style="display:inline-block;width:10px;height:6px;background:#64748b;border-radius:1px;margin-right:3px;"></span>整備</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scene 1: Reservations -->
+          <div class="rt-scene" data-index="1">
+            <div class="rt-ptitle rt-anim">📋 予約管理</div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">予約一覧</div>
+              <table class="rt-tbl">
+                <thead><tr><th>予約ID</th><th>顧客名</th><th>車両</th><th>出発日</th><th>返却日</th><th>金額</th><th>ステータス</th></tr></thead>
+                <tbody>
+                  <tr><td>RSV-0042</td><td>佐藤 太郎</td><td>ヤリス</td><td>3/28</td><td>3/30</td><td class="r">&yen;16,500</td><td><span class="rt-badge green">承認済</span></td></tr>
+                  <tr><td>RSV-0043</td><td>田中 花子</td><td>フィット</td><td>3/29</td><td>4/2</td><td class="r">&yen;28,600</td><td><span class="rt-badge amber">承認待ち</span></td></tr>
+                  <tr><td>RSV-0044</td><td>鈴木 一郎</td><td>N-BOX</td><td>4/1</td><td>4/5</td><td class="r">&yen;33,000</td><td><span class="rt-badge blue">HP経由</span></td></tr>
+                  <tr><td>RSV-0045</td><td>高橋 美咲</td><td>アクア</td><td>4/3</td><td>4/7</td><td class="r">&yen;30,800</td><td><span class="rt-badge blue">HP経由</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;gap:8px;font-size:9px;color:#64748b;" class="rt-anim">
+              <span class="rt-badge blue" style="animation:rt-pulse 2s infinite;">HP経由</span>
+              <span style="color:#94a3b8;">= HPの予約フォームから自動登録された予約</span>
+            </div>
+          </div>
+
+          <!-- Scene 2: Rentals -->
+          <div class="rt-scene" data-index="2">
+            <div class="rt-ptitle rt-anim">🚗 貸出管理</div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">貸出中一覧</div>
+              <table class="rt-tbl">
+                <thead><tr><th>顧客名</th><th>車両</th><th>出発日</th><th>返却予定</th><th>日数</th><th>金額</th><th>ステータス</th></tr></thead>
+                <tbody>
+                  <tr><td>山本 健太</td><td>ヤリス<br><span style="font-size:8px;color:#64748b;">札幌300あ1234</span></td><td>3/25</td><td>3/28</td><td class="r">3日</td><td class="r">&yen;16,500</td><td><span class="rt-badge green">貸出中</span></td></tr>
+                  <tr><td>中村 洋子</td><td>フィット<br><span style="font-size:8px;color:#64748b;">札幌500い5678</span></td><td>3/26</td><td>3/30</td><td class="r">4日</td><td class="r">&yen;22,000</td><td><span class="rt-badge green">貸出中</span></td></tr>
+                  <tr><td>小林 大輔</td><td>アクア<br><span style="font-size:8px;color:#64748b;">札幌300お7890</span></td><td>3/20</td><td>3/25</td><td class="r">5日</td><td class="r">&yen;27,500</td><td><span class="rt-badge red">延滞中</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rt-card rt-anim" style="border-left:2px solid #ef4444;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:14px;">⚠</span>
+                <div>
+                  <div style="font-size:10px;font-weight:700;color:#ef4444;">延滞アラート</div>
+                  <div style="font-size:9px;color:#94a3b8;">小林 大輔 様 — 返却予定日を2日超過しています</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scene 3: Vehicles -->
+          <div class="rt-scene" data-index="3">
+            <div class="rt-ptitle rt-anim">🔧 車両管理</div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">車両一覧</div>
+              <table class="rt-tbl">
+                <thead><tr><th>ナンバー</th><th>車種</th><th>クラス</th><th>ステータス</th><th>次回整備</th></tr></thead>
+                <tbody>
+                  <tr><td>札幌 300 あ 1234</td><td>トヨタ ヤリス</td><td>コンパクト</td><td><span class="rt-badge blue">貸出中</span></td><td>4/15</td></tr>
+                  <tr><td>札幌 500 い 5678</td><td>ホンダ フィット</td><td>コンパクト</td><td><span class="rt-badge blue">貸出中</span></td><td>5/1</td></tr>
+                  <tr><td>札幌 300 う 9012</td><td>トヨタ アクア</td><td>エコ</td><td><span class="rt-badge gray">整備中</span></td><td>—</td></tr>
+                  <tr><td>札幌 500 え 3456</td><td>ホンダ N-BOX</td><td>軽</td><td><span class="rt-badge green">空車</span></td><td>4/20</td></tr>
+                  <tr><td>札幌 300 お 7890</td><td>トヨタ アクア</td><td>エコ</td><td><span class="rt-badge amber">延滞</span></td><td>4/8</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">整備スケジュール</div>
+              <table class="rt-tbl">
+                <thead><tr><th>車両</th><th>整備内容</th><th>予定日</th><th>整備工場</th></tr></thead>
+                <tbody>
+                  <tr><td>札幌300う9012</td><td>オイル交換</td><td>3/29</td><td>ABC整備</td></tr>
+                  <tr><td>札幌300お7890</td><td>12ヶ月点検</td><td>4/8</td><td>XYZ自動車</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Scene 4: Customers -->
+          <div class="rt-scene" data-index="4">
+            <div class="rt-ptitle rt-anim">👤 顧客管理</div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">顧客一覧</div>
+              <table class="rt-tbl">
+                <thead><tr><th>顧客名</th><th>電話番号</th><th>利用回数</th><th>累計売上</th><th>最終利用</th></tr></thead>
+                <tbody>
+                  <tr><td>佐藤 太郎</td><td>090-1234-xxxx</td><td class="r">8回</td><td class="r">&yen;198,000</td><td>2026-03-15</td></tr>
+                  <tr><td>山本 健太</td><td>080-5678-xxxx</td><td class="r">12回</td><td class="r">&yen;352,000</td><td>2026-03-25</td></tr>
+                  <tr><td>田中 花子</td><td>070-9012-xxxx</td><td class="r">3回</td><td class="r">&yen;66,000</td><td>2026-02-20</td></tr>
+                  <tr><td>中村 洋子</td><td>090-3456-xxxx</td><td class="r">5回</td><td class="r">&yen;143,000</td><td>2026-03-26</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rt-card rt-anim">
+              <div class="rt-card-title">顧客詳細 — 山本 健太 様</div>
+              <div style="display:flex;gap:16px;font-size:10px;color:#94a3b8;line-height:1.8;">
+                <div>利用回数: <strong style="color:white;">12回</strong><br>累計売上: <strong style="color:white;">&yen;352,000</strong></div>
+                <div>最終利用: <strong style="color:white;">2026-03-25</strong><br>支払状況: <span class="rt-badge green">未収なし</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="rt-controls">
+      <button class="rt-ctrl-btn" data-scene="0">稼働表</button>
+      <button class="rt-ctrl-btn" data-scene="1">予約管理</button>
+      <button class="rt-ctrl-btn" data-scene="2">貸出管理</button>
+      <button class="rt-ctrl-btn" data-scene="3">車両管理</button>
+      <button class="rt-ctrl-btn" data-scene="4">顧客管理</button>
+    </div>
+    <script>
+    (function(){
+      var c=0,t=5,tm;
+      var sc=document.querySelectorAll('.rt-scene'),nv=document.querySelectorAll('.rt-nav-item'),cb=document.querySelectorAll('.rt-ctrl-btn'),pg=document.getElementById('rtProgress');
+      function ra(s){s.querySelectorAll('.rt-anim').forEach(function(e){e.style.animation='none';e.offsetHeight;e.style.animation='';});}
+      function rp(){pg.style.animation='none';pg.offsetHeight;pg.style.animation='rt-progress 5s linear';}
+      function sh(i){c=i;sc.forEach(function(s,j){s.style.display=j===i?'block':'none';});nv.forEach(function(n,j){n.classList.toggle('active',j===i);});cb.forEach(function(b,j){b.classList.toggle('active',j===i);});ra(sc[i]);rp();}
+      function au(){clearInterval(tm);tm=setInterval(function(){sh((c+1)%t);},5000);}
+      nv.forEach(function(n){n.addEventListener('click',function(){sh(parseInt(n.dataset.scene));au();});});
+      cb.forEach(function(b){b.addEventListener('click',function(){sh(parseInt(b.dataset.scene));au();});});
+      sh(0);au();
+    })();
+    </script>
 
     <div class="sl"><div class="sl-text">FEATURES</div><div class="sl-line"></div></div>
     <div class="fg3">
@@ -218,14 +501,14 @@
         <div class="ind-item"><div class="ind-dot"></div><div>車両の貸出・返却・在庫を一元管理</div></div>
         <div class="ind-item"><div class="ind-dot"></div><div>予約サイト・HPと完全連動</div></div>
         <div class="ind-item"><div class="ind-dot"></div><div>ダブルブッキング防止</div></div>
-        <div class="ind-item"><div class="ind-dot"></div><div>導入実績あり</div></div>
+        <div class="ind-item"><div class="ind-dot"></div><div>利用実績あり</div></div>
       </div>
       <div class="ind">
         <div class="ind-title">自動車整備・車両管理</div>
         <div class="ind-item"><div class="ind-dot"></div><div>入出庫管理・整備履歴を記録</div></div>
         <div class="ind-item"><div class="ind-dot"></div><div>顧客ごとの車両履歴を一元管理</div></div>
         <div class="ind-item"><div class="ind-dot"></div><div>請求書発行までワンストップ</div></div>
-        <div class="ind-item"><div class="ind-dot"></div><div>導入実績あり</div></div>
+        <div class="ind-item"><div class="ind-dot"></div><div>利用実績あり</div></div>
       </div>
       <div class="ind">
         <div class="ind-title">その他レンタル業全般</div>

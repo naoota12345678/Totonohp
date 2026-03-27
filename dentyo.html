@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dentyo | 撮って、捨てる。 - 領収書AI管理・電帳法対応</title>
+  <meta name="description" content="スマホで撮るだけ。AIが自動で読み取り、電子帳簿保存法に対応した形式でGoogle Driveに保存。撮ったらレシートは捨ててOK。">
+  <link rel="canonical" href="https://romu.ai/dentyo">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#FAFAFA;font-family:'Noto Sans JP',sans-serif;color:#1A1A1A;}
+    .wrap{max-width:900px;margin:0 auto;background:white;}
+
+    /* NAV */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:.5px solid #e8e8e8;}
+    .nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#1A1A1A;letter-spacing:-.01em;}
+    .nav-series{font-size:10px;color:#aaa;letter-spacing:.12em;margin-left:10px;}
+    .nav-left{display:flex;align-items:baseline;gap:4px;}
+    .nav-back{font-size:11px;color:#aaa;text-decoration:none;}
+    .nav-cta{background:#1A1A1A;color:white;font-size:11px;padding:8px 18px;border-radius:2px;text-decoration:none;letter-spacing:.05em;}
+
+    /* HERO */
+    .hero{padding:80px 48px 64px;border-bottom:.5px solid #e8e8e8;}
+    .hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:48px;}
+    .hero-label{font-size:10px;color:#aaa;letter-spacing:.15em;margin-bottom:16px;}
+    .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-size:72px;color:#1A1A1A;line-height:1;letter-spacing:-.02em;margin-bottom:8px;}
+    .hero-tagline{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:#1A1A1A;letter-spacing:.1em;}
+    .hero-right{text-align:right;}
+    .hero-series{font-size:10px;color:#aaa;letter-spacing:.12em;margin-bottom:4px;}
+    .hero-estd{font-size:10px;color:#aaa;letter-spacing:.12em;}
+    .hero-desc{font-size:13px;color:#555;line-height:2.1;max-width:560px;font-weight:300;}
+    .hero-law{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap;}
+    .law-tag{font-size:10px;border:.5px solid #1A1A1A;color:#1A1A1A;padding:4px 12px;border-radius:1px;letter-spacing:.05em;}
+    .hero-cta{display:flex;gap:12px;margin-top:32px;align-items:center;}
+    .btn-primary{background:#1A1A1A;color:white;font-size:12px;font-weight:500;padding:12px 28px;border-radius:2px;text-decoration:none;letter-spacing:.05em;}
+    .btn-trial{font-size:12px;color:#1A1A1A;border-bottom:.5px solid #1A1A1A;padding-bottom:1px;text-decoration:none;letter-spacing:.03em;}
+    .trial-note{font-size:11px;color:#aaa;margin-top:8px;}
+
+    /* PROBLEM */
+    .problem{padding:64px 48px;border-bottom:.5px solid #e8e8e8;background:#FAFAFA;}
+    .section-label{font-size:10px;letter-spacing:.15em;color:#aaa;margin-bottom:24px;}
+    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e8e8e8;}
+    .problem-item{background:white;padding:24px;display:flex;gap:14px;align-items:flex-start;}
+    .problem-num{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:#e0e0e0;flex-shrink:0;line-height:1;}
+    .problem-text{font-size:12px;color:#555;line-height:1.85;font-weight:300;}
+    .problem-text strong{color:#1A1A1A;font-weight:500;display:block;margin-bottom:4px;}
+
+    /* SOLUTION */
+    .solution{padding:64px 48px;border-bottom:.5px solid #e8e8e8;}
+    .solution-title{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:300;color:#1A1A1A;margin-bottom:8px;line-height:1.5;letter-spacing:.05em;}
+    .solution-sub{font-size:12px;color:#aaa;margin-bottom:40px;letter-spacing:.05em;}
+    .flow{display:flex;align-items:center;gap:0;margin-bottom:40px;}
+    .flow-step{flex:1;text-align:center;padding:20px 8px;border:.5px solid #e8e8e8;}
+    .flow-step:first-child{border-radius:2px 0 0 2px;}
+    .flow-step:last-child{border-radius:0 2px 2px 0;}
+    .flow-icon{width:40px;height:40px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
+    .flow-name{font-size:11px;font-weight:500;color:#1A1A1A;margin-bottom:3px;}
+    .flow-desc{font-size:10px;color:#aaa;}
+    .flow-arrow{color:#ccc;font-size:16px;flex-shrink:0;padding:0 4px;}
+
+    /* FEATURES */
+    .features{padding:0 48px 64px;border-bottom:.5px solid #e8e8e8;}
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e8e8e8;margin-bottom:1px;}
+    .feat-item{background:white;padding:28px 24px;}
+    .feat-label{font-size:10px;color:#aaa;letter-spacing:.1em;margin-bottom:10px;}
+    .feat-title{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:10px;}
+    .feat-desc{font-size:11.5px;color:#555;line-height:1.85;font-weight:300;}
+    .feat-tags{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+    .feat-tag{font-size:10px;background:#f5f5f5;color:#555;padding:2px 8px;border-radius:1px;}
+
+    /* AI BADGE */
+    .ai-box{background:#1A1A1A;color:white;padding:28px 32px;margin-bottom:1px;display:flex;gap:24px;align-items:flex-start;}
+    .ai-icon{font-size:28px;flex-shrink:0;}
+    .ai-title{font-size:13px;font-weight:500;margin-bottom:6px;}
+    .ai-desc{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.85;}
+    .ai-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+    .ai-tag{font-size:10px;border:.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);padding:2px 8px;border-radius:1px;}
+
+    /* LAW */
+    .law{padding:64px 48px;border-bottom:.5px solid #e8e8e8;background:#FAFAFA;}
+    .law-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .law-card{background:white;border:.5px solid #e8e8e8;padding:24px;border-top:2px solid #1A1A1A;}
+    .law-card-label{font-size:10px;color:#aaa;letter-spacing:.1em;margin-bottom:8px;}
+    .law-card-title{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:10px;}
+    .law-card-desc{font-size:11px;color:#555;line-height:1.8;font-weight:300;}
+
+    /* ADVANTAGE */
+    .advantage{padding:64px 48px;border-bottom:.5px solid #e8e8e8;}
+    .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e8e8e8;}
+    .adv-item{background:white;padding:28px 24px;}
+    .adv-title{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:10px;}
+    .adv-desc{font-size:11.5px;color:#555;line-height:1.85;font-weight:300;}
+
+    /* PRICING */
+    .pricing{padding:64px 48px;border-bottom:.5px solid #e8e8e8;}
+    .price-box{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e8e8e8;}
+    .price-item{background:white;padding:32px;}
+    .price-item.main{background:#1A1A1A;color:white;}
+    .price-label{font-size:10px;letter-spacing:.12em;margin-bottom:16px;color:#aaa;}
+    .price-item.main .price-label{color:rgba(255,255,255,.4);}
+    .price-amt{font-family:'Playfair Display',serif;font-style:italic;font-size:48px;line-height:1;margin-bottom:6px;}
+    .price-item.main .price-amt{color:white;}
+    .price-unit{font-size:12px;color:#aaa;margin-bottom:16px;}
+    .price-item.main .price-unit{color:rgba(255,255,255,.5);}
+    .price-strike{font-size:14px;color:rgba(255,255,255,.35);text-decoration:line-through;margin-bottom:4px;}
+    .price-off{display:inline-block;font-size:10px;background:#B8905A;color:white;padding:2px 8px;border-radius:1px;margin-bottom:8px;letter-spacing:.05em;}
+    .price-div{height:.5px;background:#e8e8e8;margin:16px 0;}
+    .price-item.main .price-div{background:rgba(255,255,255,.15);}
+    .price-li{font-size:11.5px;color:#555;padding:3px 0;display:flex;gap:8px;line-height:1.6;}
+    .price-item.main .price-li{color:rgba(255,255,255,.7);}
+    .price-ck{color:#1A1A1A;font-weight:700;flex-shrink:0;}
+    .price-item.main .price-ck{color:white;}
+    .price-note{font-size:11px;color:#aaa;margin-top:12px;}
+    .price-item.main .price-note{color:rgba(255,255,255,.35);}
+
+    /* SERVICE */
+    .service{padding:64px 48px;border-bottom:.5px solid #e8e8e8;}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    .svc-card{padding:20px;border:.5px solid #e8e8e8;border-radius:2px;text-align:center;}
+    .svc-card.soon{opacity:.45;}
+    .svc-name{font-size:12px;font-weight:500;color:#1A1A1A;margin-bottom:4px;}
+    .svc-desc{font-size:10px;color:#aaa;line-height:1.6;}
+    .svc-badge{display:inline-block;font-size:9px;background:#f0f0f0;color:#aaa;padding:2px 8px;border-radius:1px;margin-top:6px;letter-spacing:.05em;}
+    .svc-badge.live{background:#1A1A1A;color:white;}
+
+    /* CTA */
+    .cta{padding:80px 48px;text-align:center;border-bottom:.5px solid #e8e8e8;}
+    .cta-title{font-family:'Playfair Display',serif;font-style:italic;font-size:42px;color:#1A1A1A;margin-bottom:16px;letter-spacing:-.01em;}
+    .cta-sub{font-size:13px;color:#777;line-height:2;margin-bottom:32px;font-weight:300;}
+    .cta-btns{display:flex;gap:12px;justify-content:center;align-items:center;}
+
+    /* FOOTER */
+    .footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:#FAFAFA;}
+    .footer-left{display:flex;align-items:baseline;gap:8px;}
+    .footer-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#1A1A1A;}
+    .footer-series{font-size:10px;color:#aaa;letter-spacing:.1em;}
+    .footer-company{font-size:11px;color:#aaa;}
+    .footer-copy{font-size:11px;color:#aaa;}
+
+    /* DEMO */
+    @keyframes dt-progress{from{width:0}to{width:100%}}
+    @keyframes dt-fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes dt-pulse{0%,100%{box-shadow:0 0 0 0 rgba(26,26,26,.3)}50%{box-shadow:0 0 0 6px rgba(26,26,26,0)}}
+    @keyframes dt-blink{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes dt-highlight{0%,100%{border-color:#e8e8e8;background:white}50%{border-color:#1A1A1A;background:#f5f5f5}}
+    .dt-wrap{margin:0 48px 40px;border:.5px solid #e8e8e8;}
+    .dt-window{border-radius:6px;overflow:hidden;border:.5px solid #d5d5d5;box-shadow:0 4px 20px rgba(0,0,0,.08);position:relative;}
+    .dt-titlebar{background:#f0f0f0;padding:7px 14px;display:flex;align-items:center;gap:10px;position:relative;}
+    .dt-dots{display:flex;gap:5px;}
+    .dt-dots span{width:9px;height:9px;border-radius:50%;}
+    .dt-dots span:nth-child(1){background:#ef4444;}
+    .dt-dots span:nth-child(2){background:#f59e0b;}
+    .dt-dots span:nth-child(3){background:#22c55e;}
+    .dt-url{font-size:10px;color:#aaa;background:white;padding:3px 14px;border-radius:3px;flex:1;text-align:center;letter-spacing:.03em;}
+    .dt-live{display:flex;align-items:center;gap:5px;font-size:9px;color:#1A1A1A;font-weight:500;letter-spacing:.05em;}
+    .dt-live-dot{width:6px;height:6px;border-radius:50%;background:#1A1A1A;animation:dt-blink 1.2s ease-in-out infinite;}
+    .dt-progress-bar{position:absolute;bottom:0;left:0;height:2px;background:#eee;width:100%;}
+    .dt-progress-fill{height:100%;background:#1A1A1A;animation:dt-progress 5s linear;}
+    .dt-app{display:flex;height:380px;background:#FAFAFA;}
+    .dt-sidebar{width:150px;background:#1A1A1A;padding:0;flex-shrink:0;}
+    .dt-side-title{padding:14px 12px 10px;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:white;border-bottom:1px solid rgba(255,255,255,.1);}
+    .dt-nav-item{padding:8px 12px;font-size:10.5px;color:rgba(255,255,255,.6);cursor:pointer;border-left:2px solid transparent;transition:all .2s;}
+    .dt-nav-item:hover{color:white;background:rgba(255,255,255,.05);}
+    .dt-nav-item.active{background:rgba(255,255,255,.1);color:white;font-weight:700;border-left-color:white;}
+    .dt-main{flex:1;padding:18px 22px;overflow-y:auto;}
+    .dt-scene{display:none;}
+    .dt-scene .dt-anim{opacity:0;animation:dt-fadeUp .5s ease forwards;}
+    .dt-scene .dt-anim:nth-child(1){animation-delay:.1s}
+    .dt-scene .dt-anim:nth-child(2){animation-delay:.3s}
+    .dt-scene .dt-anim:nth-child(3){animation-delay:.5s}
+    .dt-scene .dt-anim:nth-child(4){animation-delay:.7s}
+    .dt-page-title{font-size:15px;font-weight:700;color:#1A1A1A;margin-bottom:14px;}
+    .dt-cards{display:flex;gap:10px;margin-bottom:12px;}
+    .dt-dash-card{flex:1;border:.5px solid #e8e8e8;border-radius:6px;padding:16px;background:white;text-align:center;}
+    .dt-dash-icon{font-size:24px;margin-bottom:6px;}
+    .dt-dash-name{font-size:12px;font-weight:500;color:#1A1A1A;margin-bottom:3px;}
+    .dt-dash-desc{font-size:10px;color:#aaa;}
+    .dt-card{background:white;border:.5px solid #e8e8e8;border-radius:6px;padding:14px 16px;margin-bottom:10px;}
+    .dt-card-title{font-size:11px;font-weight:700;color:#1A1A1A;margin-bottom:8px;padding-bottom:5px;border-bottom:.5px solid #e8e8e8;}
+    .dt-table{width:100%;border-collapse:collapse;font-size:10px;}
+    .dt-table th{padding:5px 6px;background:#f5f5f5;color:#1A1A1A;font-weight:600;text-align:left;border-bottom:1.5px solid #1A1A1A;font-size:9px;letter-spacing:.05em;}
+    .dt-table td{padding:5px 6px;border-bottom:.5px solid #e8e8e8;color:#555;}
+    .dt-table td.r{text-align:right;}
+    .dt-badge{display:inline-block;padding:1px 7px;border-radius:1px;font-size:8px;font-weight:700;letter-spacing:.03em;}
+    .dt-badge.green{background:#d4edda;color:#2D6A4F;}
+    .dt-badge.blue{background:#d0e4ff;color:#004085;}
+    .dt-badge.orange{background:#fff3cd;color:#856404;}
+    .dt-badge.dark{background:#1A1A1A;color:white;}
+    .dt-browser-box{border:1.5px solid #1A1A1A;border-radius:4px;padding:10px;margin-bottom:10px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#fafafa;animation:dt-highlight 3s ease-in-out infinite;}
+    .dt-browser-label{font-size:11px;font-weight:600;color:#1A1A1A;}
+    .dt-browser-sub{font-size:9px;color:#aaa;}
+    .dt-browser-status{display:flex;align-items:center;gap:5px;font-size:10px;color:#2D6A4F;font-weight:600;}
+    .dt-browser-status-dot{width:6px;height:6px;border-radius:50%;background:#2D6A4F;animation:dt-blink 1s ease-in-out infinite;}
+    .dt-receipt{border:.5px solid #e8e8e8;border-radius:4px;padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;gap:10px;background:white;}
+    .dt-receipt-icon{font-size:20px;}
+    .dt-receipt-info{flex:1;}
+    .dt-receipt-name{font-size:10px;font-weight:600;color:#1A1A1A;font-family:monospace;letter-spacing:.02em;}
+    .dt-receipt-detail{font-size:9px;color:#aaa;margin-top:1px;}
+    .dt-receipt-arrow{font-size:10px;color:#aaa;}
+    .dt-ai-box{background:#1A1A1A;color:white;border-radius:4px;padding:10px 14px;margin-bottom:10px;display:flex;gap:10px;align-items:center;}
+    .dt-ai-label{font-size:9px;color:rgba(255,255,255,.5);letter-spacing:.08em;}
+    .dt-ai-result{font-size:10px;color:white;line-height:1.7;}
+    .dt-ai-blink{animation:dt-blink 1.5s ease-in-out infinite;}
+    .dt-drive-folder{border:.5px solid #e8e8e8;border-radius:4px;padding:8px 12px;margin-bottom:4px;display:flex;align-items:center;gap:8px;background:white;font-size:10px;}
+    .dt-drive-folder.open{background:#f5f5f5;font-weight:600;}
+    .dt-drive-indent{padding-left:24px;}
+    .dt-drive-icon{font-size:14px;}
+    .dt-drive-name{flex:1;color:#1A1A1A;}
+    .dt-drive-count{font-size:9px;color:#aaa;}
+    .dt-controls{display:flex;gap:5px;justify-content:center;margin:10px 48px 0;flex-wrap:wrap;}
+    .dt-ctrl-btn{padding:5px 12px;border:.5px solid #d5d5d5;border-radius:2px;font-size:10px;cursor:pointer;background:white;color:#777;font-family:'Noto Sans JP',sans-serif;transition:all .2s;letter-spacing:.03em;}
+    .dt-ctrl-btn:hover{border-color:#1A1A1A;color:#1A1A1A;}
+    .dt-ctrl-btn.active{background:#1A1A1A;color:white;border-color:#1A1A1A;}
+
+    /* RESPONSIVE */
+    @media(max-width:700px){
+      .nav{padding:16px 20px;}
+      .hero{padding:48px 20px 40px;}
+      .hero-title{font-size:48px;}
+      .hero-tagline{font-size:18px;}
+      .hero-top{flex-direction:column;gap:16px;}
+      .problem{padding:40px 20px;}
+      .problem-grid{grid-template-columns:1fr;}
+      .solution{padding:40px 20px;}
+      .flow{flex-direction:column;gap:4px;}
+      .flow-arrow{transform:rotate(90deg);}
+      .flow-step{width:100%;}
+      .features{padding:0 20px 40px;}
+      .feat-grid{grid-template-columns:1fr;}
+      .ai-box{flex-direction:column;gap:12px;}
+      .law{padding:40px 20px;}
+      .law-grid{grid-template-columns:1fr;}
+      .advantage{padding:40px 20px;}
+      .adv-grid{grid-template-columns:1fr;}
+      .pricing{padding:40px 20px;}
+      .price-box{grid-template-columns:1fr;}
+      .service{padding:40px 20px;}
+      .svc-grid{grid-template-columns:1fr 1fr;}
+      .cta{padding:48px 20px;}
+      .cta-title{font-size:32px;}
+      .footer{padding:20px 20px;}
+      .dt-wrap{margin:0 20px 28px;}
+      .dt-app{flex-direction:column;height:auto;min-height:420px;}
+      .dt-sidebar{width:100%;display:flex;overflow-x:auto;}
+      .dt-side-title{display:none;}
+      .dt-nav-item{white-space:nowrap;padding:7px 10px;border-left:none;border-bottom:2px solid transparent;font-size:9px;}
+      .dt-nav-item.active{border-left:none;border-bottom-color:white;}
+      .dt-cards{flex-direction:column;}
+      .dt-controls{margin:10px 20px 0;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+      <img src="/logo-nav.png" alt="dentyo" style="height:56px;">
+    </div>
+    <a class="nav-back" href="/">← romu.ai</a>
+    <a class="nav-cta" href="mailto:contact@romu.ai">お問い合わせ</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-label">RECEIPT MANAGEMENT APP</div>
+        <img src="/dentyologo.png" alt="dentyo" style="max-width:360px;margin-bottom:8px;">
+      </div>
+      <div class="hero-right">
+        <div class="hero-series">TONOS.SERIES</div>
+        <div class="hero-estd">ESTD 2026</div>
+      </div>
+    </div>
+    <p class="hero-desc">レシートが溜まる、電子帳簿保存法が不安、インボイスの管理が面倒——スマホで撮るだけで全部解決します。AIが自動で読み取り、法律に対応した形式でGoogle Driveに保存。撮ったらレシートは捨ててOKです。</p>
+    <div class="hero-law">
+      <div class="law-tag">電子帳簿保存法対応</div>
+      <div class="law-tag">インボイス制度対応</div>
+      <div class="law-tag">スキャナ保存対応</div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-primary" href="https://dentyo.romu.ai">7日間無料で試す</a>
+      <a class="btn-trial" href="mailto:contact@romu.ai">詳しく聞く</a>
+    </div>
+    <div class="trial-note">クレジットカード不要・7日間全機能無料</div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="section-label">PROBLEM — こんな悩みありませんか？</div>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="problem-num">01</div>
+        <div class="problem-text"><strong>レシートが溜まる</strong>捨てられないレシートが引き出しやバッグの中に。整理する時間もない。</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">02</div>
+        <div class="problem-text"><strong>Amazonの領収書、毎月手作業で保存していませんか？</strong>1枚ずつダウンロードして整理。freeeを使っていてもこの手間は変わらない。</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-num">03</div>
+        <div class="problem-text"><strong>電帳法・インボイス、何をすればいい？</strong>法律に対応しないと罰則がある。T番号の記録も面倒すぎる。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution">
+    <div class="section-label">SOLUTION</div>
+    <div class="solution-title">dentyoが全部解決します。</div>
+    <div class="solution-sub">スマホで撮るだけ。あとは全部自動です。</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <div class="flow-name">撮影</div>
+        <div class="flow-desc">スマホで撮るだけ</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+        <div class="flow-name">AI読み取り</div>
+        <div class="flow-desc">店名・金額・T番号</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="flow-name">自動整理</div>
+        <div class="flow-desc">Driveに自動保存</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+          </svg>
+        </div>
+        <div class="flow-name">レシート捨てる</div>
+        <div class="flow-desc">もう溜めなくていい</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="flow-name">法律対応完了</div>
+        <div class="flow-desc">電帳法・インボイス</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section style="padding:48px 0 0;">
+    <div style="text-align:center;margin-bottom:18px;padding:0 48px;">
+      <div class="section-label">LIVE DEMO</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:18px;font-weight:300;color:#1A1A1A;margin-bottom:4px;">実際の操作画面をご覧ください</div>
+      <div style="font-size:11px;color:#aaa;line-height:1.8;">自動再生で主要機能をご紹介します</div>
+    </div>
+    <div class="dt-wrap">
+      <div class="dt-window">
+        <div class="dt-titlebar">
+          <div class="dt-dots"><span></span><span></span><span></span></div>
+          <div class="dt-url">dentyo.romu.ai</div>
+          <div class="dt-live"><span class="dt-live-dot"></span>デモ再生中</div>
+          <div class="dt-progress-bar"><div class="dt-progress-fill" id="dtProgress"></div></div>
+        </div>
+        <div class="dt-app">
+          <div class="dt-sidebar">
+            <div class="dt-side-title">dentyo</div>
+            <div class="dt-nav-item" data-scene="0">🏠 ダッシュボード</div>
+            <div class="dt-nav-item" data-scene="1">🛒 EC注文取得</div>
+            <div class="dt-nav-item" data-scene="2">📸 レシート撮影</div>
+            <div class="dt-nav-item" data-scene="3">📁 Google Drive</div>
+          </div>
+          <div class="dt-main">
+
+            <!-- Scene 0: Dashboard -->
+            <div class="dt-scene" data-index="0">
+              <div class="dt-page-title dt-anim">ダッシュボード</div>
+              <div class="dt-cards dt-anim">
+                <div class="dt-dash-card" style="animation:dt-pulse 2.5s ease-in-out infinite;">
+                  <div class="dt-dash-icon">🛒</div>
+                  <div class="dt-dash-name">EC注文取得</div>
+                  <div class="dt-dash-desc">Amazon・楽天・Yahooから自動取得</div>
+                </div>
+                <div class="dt-dash-card" style="animation:dt-pulse 2.5s ease-in-out 1s infinite;">
+                  <div class="dt-dash-icon">📸</div>
+                  <div class="dt-dash-name">レシート撮影</div>
+                  <div class="dt-dash-desc">撮影してDriveに保存・自動読み取り</div>
+                </div>
+              </div>
+              <div class="dt-card dt-anim">
+                <div class="dt-card-title">最近の取り込み</div>
+                <div class="dt-table">
+                  <table class="dt-table">
+                    <thead><tr><th>日付</th><th>取引先</th><th>金額</th><th>ソース</th></tr></thead>
+                    <tbody>
+                      <tr><td>2026-03-26</td><td>Amazon.co.jp</td><td class="r">&yen;12,800</td><td><span class="dt-badge dark">EC自動</span></td></tr>
+                      <tr><td>2026-03-26</td><td>セブンイレブン</td><td class="r">&yen;540</td><td><span class="dt-badge green">レシート</span></td></tr>
+                      <tr><td>2026-03-25</td><td>楽天市場</td><td class="r">&yen;3,280</td><td><span class="dt-badge dark">EC自動</span></td></tr>
+                      <tr><td>2026-03-25</td><td>ヤマダ電機</td><td class="r">&yen;32,780</td><td><span class="dt-badge green">レシート</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scene 1: EC Scraping -->
+            <div class="dt-scene" data-index="1">
+              <div class="dt-page-title dt-anim">🛒 EC注文データ取得</div>
+              <div class="dt-card dt-anim" style="display:flex;gap:10px;align-items:center;">
+                <div style="flex:1;">
+                  <div style="font-size:10px;color:#aaa;margin-bottom:3px;">取得サイト</div>
+                  <div style="padding:5px 10px;border:.5px solid #e8e8e8;border-radius:3px;font-size:11px;display:inline-block;">Amazon.co.jp ▼</div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#aaa;margin-bottom:3px;">取得年</div>
+                  <div style="padding:5px 10px;border:.5px solid #e8e8e8;border-radius:3px;font-size:11px;display:inline-block;">2026年 ▼</div>
+                </div>
+                <div style="padding:6px 14px;background:#1A1A1A;color:white;border-radius:2px;font-size:10px;font-weight:600;">取得開始</div>
+              </div>
+              <div class="dt-browser-box dt-anim">
+                <div class="dt-browser-status"><span class="dt-browser-status-dot"></span>スクレイピング中...</div>
+                <div class="dt-browser-label">リモートブラウザでAmazonに自動ログイン</div>
+                <div class="dt-browser-sub">注文履歴を一括取得 → 領収書PDFを自動ダウンロード → Google Driveに保存</div>
+              </div>
+              <div class="dt-card dt-anim">
+                <div class="dt-card-title">取得結果</div>
+                <table class="dt-table">
+                  <thead><tr><th>注文日</th><th>商品名</th><th>金額</th><th>領収書</th></tr></thead>
+                  <tbody>
+                    <tr><td>3/26</td><td>コピー用紙 A4 2500枚</td><td class="r">&yen;3,480</td><td><span class="dt-badge green">PDF保存済</span></td></tr>
+                    <tr><td>3/24</td><td>USBハブ 4ポート</td><td class="r">&yen;1,980</td><td><span class="dt-badge green">PDF保存済</span></td></tr>
+                    <tr><td>3/22</td><td>モニターアーム デュアル</td><td class="r">&yen;7,340</td><td><span class="dt-badge green">PDF保存済</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Scene 2: Receipt AI -->
+            <div class="dt-scene" data-index="2">
+              <div class="dt-page-title dt-anim">📸 レシート撮影・AI読み取り</div>
+              <div class="dt-ai-box dt-anim">
+                <div style="font-size:20px;">🤖</div>
+                <div>
+                  <div class="dt-ai-label">AI READING <span class="dt-ai-blink">●</span></div>
+                  <div class="dt-ai-result">
+                    店名: <strong>ヤマダ電機 新宿店</strong><br>
+                    金額: <strong>&yen;32,780</strong>　日付: <strong>2026-03-25</strong><br>
+                    T番号: <strong>T1234567890123</strong>　支払: <strong>カード</strong>
+                  </div>
+                </div>
+              </div>
+              <div style="text-align:center;font-size:10px;color:#aaa;margin-bottom:8px;" class="dt-anim">↓ 自動でファイル名を生成 ↓</div>
+              <div class="dt-receipt dt-anim" style="border-color:#1A1A1A;animation:dt-highlight 2.5s ease-in-out infinite;">
+                <div class="dt-receipt-icon">📄</div>
+                <div class="dt-receipt-info">
+                  <div class="dt-receipt-name">20260325_ヤマダ電機新宿店_モニターアーム_32780.pdf</div>
+                  <div class="dt-receipt-detail">AI自動命名 → 日付_店名_品名_金額 の形式で電帳法対応</div>
+                </div>
+                <div class="dt-receipt-arrow">→ Drive</div>
+              </div>
+              <div class="dt-receipt dt-anim">
+                <div class="dt-receipt-icon">📄</div>
+                <div class="dt-receipt-info">
+                  <div class="dt-receipt-name">20260326_セブンイレブン_弁当他_540.pdf</div>
+                  <div class="dt-receipt-detail">現金支払い → 現金フォルダに自動振り分け</div>
+                </div>
+                <div class="dt-receipt-arrow">→ Drive</div>
+              </div>
+            </div>
+
+            <!-- Scene 3: Google Drive -->
+            <div class="dt-scene" data-index="3">
+              <div class="dt-page-title dt-anim">📁 Google Drive — あなたのデータはあなたのもの</div>
+              <div class="dt-anim">
+                <div class="dt-drive-folder open"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">dentyo_経理データ</span></div>
+                <div class="dt-drive-folder open dt-drive-indent"><span class="dt-drive-icon">📂</span><span class="dt-drive-name">2025年度（R7）</span></div>
+                <div class="dt-drive-folder dt-drive-indent" style="padding-left:48px;"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">カード</span><span class="dt-drive-count">42件</span></div>
+                <div class="dt-drive-folder dt-drive-indent" style="padding-left:48px;"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">現金</span><span class="dt-drive-count">28件</span></div>
+                <div class="dt-drive-folder dt-drive-indent" style="padding-left:48px;"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">Amazon領収書</span><span class="dt-drive-count">35件</span></div>
+                <div class="dt-drive-folder dt-drive-indent" style="padding-left:48px;"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">楽天領収書</span><span class="dt-drive-count">18件</span></div>
+                <div class="dt-drive-folder dt-drive-indent" style="padding-left:48px;"><span class="dt-drive-icon">📁</span><span class="dt-drive-name">要確認</span><span class="dt-drive-count">3件</span></div>
+              </div>
+              <div class="dt-card dt-anim" style="margin-top:8px;">
+                <div class="dt-card-title">CSVデータも自動生成</div>
+                <div class="dt-receipt" style="margin-bottom:4px;">
+                  <div class="dt-receipt-icon">📊</div>
+                  <div class="dt-receipt-info">
+                    <div class="dt-receipt-name">dentyo_2025年度_経費データ.csv</div>
+                    <div class="dt-receipt-detail">日付・店名・金額・T番号・支払方法 — 会計ソフトに取り込み可能</div>
+                  </div>
+                </div>
+                <div class="dt-receipt">
+                  <div class="dt-receipt-icon">📊</div>
+                  <div class="dt-receipt-info">
+                    <div class="dt-receipt-name">dentyo_2025年度_Amazon注文.csv</div>
+                    <div class="dt-receipt-detail">注文日・商品名・金額・注文ID — EC注文の全データ</div>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#aaa;text-align:center;margin-top:6px;" class="dt-anim">※ dentyoを解約しても、データはすべてお客様のGoogle Driveに残ります</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dt-controls">
+      <button class="dt-ctrl-btn" data-scene="0">ダッシュボード</button>
+      <button class="dt-ctrl-btn" data-scene="1">EC注文取得</button>
+      <button class="dt-ctrl-btn" data-scene="2">レシート・AI</button>
+      <button class="dt-ctrl-btn" data-scene="3">Google Drive</button>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var current=0,total=4,timer;
+    var scenes=document.querySelectorAll('.dt-scene');
+    var navs=document.querySelectorAll('.dt-nav-item');
+    var ctrls=document.querySelectorAll('.dt-ctrl-btn');
+    var prog=document.getElementById('dtProgress');
+    function restartAnims(scene){
+      var els=scene.querySelectorAll('.dt-anim');
+      els.forEach(function(el){el.style.animation='none';el.offsetHeight;el.style.animation='';});
+    }
+    function restartProg(){prog.style.animation='none';prog.offsetHeight;prog.style.animation='dt-progress 5s linear';}
+    function show(idx){
+      current=idx;
+      scenes.forEach(function(s,i){s.style.display=i===idx?'block':'none';});
+      navs.forEach(function(n,i){n.classList.toggle('active',i===idx);});
+      ctrls.forEach(function(b,i){b.classList.toggle('active',i===idx);});
+      restartAnims(scenes[idx]);restartProg();
+    }
+    function auto(){clearInterval(timer);timer=setInterval(function(){show((current+1)%total);},5000);}
+    navs.forEach(function(n){n.addEventListener('click',function(){show(parseInt(n.dataset.scene));auto();});});
+    ctrls.forEach(function(b){b.addEventListener('click',function(){show(parseInt(b.dataset.scene));auto();});});
+    show(0);auto();
+  })();
+  </script>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="section-label" style="margin-bottom:24px;">FEATURES</div>
+    <div class="ai-box">
+      <div class="ai-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a9.96 9.96 0 0 1 3.88 1.26M21 8.5A9.96 9.96 0 0 1 22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div>
+        <div class="ai-title">AI（Google Vision + Claude）が自動読み取り</div>
+        <div class="ai-desc">店名・金額・日付・T番号・支払方法をAIが自動認識。現金/カードを自動判定してフォルダを振り分けます。読み取りに自信がないものは「要確認」フォルダに自動コピーするので、見落としゼロ。</div>
+        <div class="ai-tags">
+          <div class="ai-tag">Google Vision API</div>
+          <div class="ai-tag">Claude AI</div>
+          <div class="ai-tag">自動判定</div>
+          <div class="ai-tag">要確認フォルダ</div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-label">FEATURE 01</div>
+        <div class="feat-title">レシート撮影 → Google Drive即保存</div>
+        <div class="feat-desc">スマホで撮るだけで、年度/月ごとのフォルダに自動整理。日付・金額・取引先で検索可能なファイル名を自動生成します。</div>
+        <div class="feat-tags">
+          <div class="feat-tag">全店舗対応</div>
+          <div class="feat-tag">自動フォルダ整理</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-label">FEATURE 02</div>
+        <div class="feat-title">Amazon注文データの自動取得</div>
+        <div class="feat-desc">Amazonにログインするだけで注文データを一括取得。領収書PDFを自動ダウンロードしてDriveに保存、CSVに自動追記します。</div>
+        <div class="feat-tags">
+          <div class="feat-tag">Amazon対応</div>
+          <div class="feat-tag">PDF自動保存</div>
+          <div class="feat-tag">CSV追記</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-label">FEATURE 03</div>
+        <div class="feat-title">電子帳簿保存法に完全対応</div>
+        <div class="feat-desc">日付・金額・取引先で検索可能なファイル名を自動生成。インボイス番号（T番号）を自動記録し、スキャナ保存要件をすべて満たします。</div>
+        <div class="feat-tags">
+          <div class="feat-tag">検索可能ファイル名</div>
+          <div class="feat-tag">T番号記録</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-label">FEATURE 04</div>
+        <div class="feat-title">会計ソフトを選ばない</div>
+        <div class="feat-desc">freee・弥生・MFクラウド・財務応援R4、どの会計ソフトにもCSVで取り込み可能。税理士が変わっても、会計ソフトが変わっても使い続けられます。</div>
+        <div class="feat-tags">
+          <div class="feat-tag">freee対応</div>
+          <div class="feat-tag">弥生対応</div>
+          <div class="feat-tag">MF対応</div>
+          <div class="feat-tag">汎用CSV</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGE -->
+  <section class="advantage">
+    <div class="section-label" style="margin-bottom:24px;">WHY dentyo — 選ばれる理由</div>
+    <div class="adv-grid">
+      <div class="adv-item">
+        <div class="adv-title">あなたのデータは、あなたのもの</div>
+        <div class="adv-desc">領収書はすべてお客様自身のGoogle Driveに保存されます。dentyoをやめても、データはそのまま残ります。いつでもやめられる——だから安心して始められます。</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-title">帳簿入力の前工程の「面倒」を解決</div>
+        <div class="adv-desc">正しいデータを税理士もしくは会計ソフトに読み込む前段階を、このアプリで補完します。領収書の収集・整理・保存の手間をゼロにします。</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-title">Amazonの領収書も自動</div>
+        <div class="adv-desc">freeeでも弥生でも、Amazonの領収書PDFは自分で保存が必要です。dentyoならログインするだけで全件自動取得。電帳法対応の形式でDriveに保存します。</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-title">撮ったらすぐ捨てられる</div>
+        <div class="adv-desc">スキャナ保存法では受領から約2ヶ月7日以内の保存が必要。dentyoならその場で撮影→即保存。期限の心配なく、レシートをすぐ捨てられます。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAW -->
+  <section class="law">
+    <div class="section-label">COMPLIANCE — 法律への対応</div>
+    <div class="law-grid">
+      <div class="law-card">
+        <div class="law-card-label">LAW 01</div>
+        <div class="law-card-title">電子帳簿保存法</div>
+        <div class="law-card-desc">スキャナ保存要件（解像度・階調・検索性）に完全対応。日付・金額・取引先で検索可能なファイル名を自動生成します。</div>
+      </div>
+      <div class="law-card">
+        <div class="law-card-label">LAW 02</div>
+        <div class="law-card-title">インボイス制度</div>
+        <div class="law-card-desc">適格請求書発行事業者登録番号（T番号）を自動読み取り・記録。仕入税額控除に必要な情報を確実に保存します。</div>
+      </div>
+      <div class="law-card">
+        <div class="law-card-label">LAW 03</div>
+        <div class="law-card-title">スキャナ保存</div>
+        <div class="law-card-desc">国税庁のスキャナ保存制度に対応した形式で保存。撮影後すぐにレシートを廃棄しても法律上問題ありません。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="section-label" style="margin-bottom:24px;">PRICING</div>
+    <div class="price-box">
+      <div class="price-item">
+        <div class="price-label">FREE TRIAL</div>
+        <div class="price-amt">0</div>
+        <div class="price-unit">円 / 7日間</div>
+        <div class="price-div"></div>
+        <div class="price-li"><span class="price-ck">—</span>全機能が使い放題</div>
+        <div class="price-li"><span class="price-ck">—</span>クレジットカード不要</div>
+        <div class="price-li"><span class="price-ck">—</span>7日後に自動終了</div>
+        <div class="price-note">まず試してから決められます</div>
+      </div>
+      <div class="price-item main">
+        <div class="price-label">BASIC PLAN</div>
+        <div class="price-strike">通常 ¥1,480/月</div>
+        <div class="price-off">リリース記念 33% OFF</div>
+        <div class="price-amt">980</div>
+        <div class="price-unit">円/月（税別）· 月100枚まで</div>
+        <div class="price-div"></div>
+        <div class="price-li"><span class="price-ck">—</span>レシート撮影・AI自動読取</div>
+        <div class="price-li"><span class="price-ck">—</span>Google Drive自動保存</div>
+        <div class="price-li"><span class="price-ck">—</span>Amazon注文自動取得</div>
+        <div class="price-li"><span class="price-ck">—</span>電子帳簿保存法対応</div>
+        <div class="price-li"><span class="price-ck">—</span>インボイス・T番号対応</div>
+        <div class="price-li"><span class="price-ck">—</span>freee・弥生・MF等へCSV出力</div>
+        <div class="price-note">月100枚超の場合は別途ご相談ください</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section class="service">
+    <div class="section-label">COMPATIBLE SERVICES — 対応サービス</div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-name">レシート全般</div>
+        <div class="svc-desc">コンビニ・スーパー・飲食店など全店舗対応</div>
+        <div class="svc-badge live">対応中</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name">Amazon</div>
+        <div class="svc-desc">注文データ・領収書PDFの自動取得</div>
+        <div class="svc-badge live">対応中</div>
+      </div>
+      <div class="svc-card soon">
+        <div class="svc-name">楽天市場</div>
+        <div class="svc-desc">注文データの自動取得</div>
+        <div class="svc-badge">近日対応</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-title">撮って、捨てる。</div>
+    <p class="cta-sub">7日間、全機能を無料でお試しいただけます。<br>クレジットカード不要。まず使ってみてください。<br><br>あなたのデータはあなたのGoogle Driveに。<br>dentyoをやめても、データはそのまま残ります。</p>
+    <div class="cta-btns">
+      <a class="btn-primary" href="https://dentyo.romu.ai">7日間無料で試す</a>
+      <a class="btn-trial" href="mailto:contact@romu.ai">お問い合わせ</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <div class="footer-left">
+        <div class="footer-logo">dentyo</div>
+        <div class="footer-series">TONOS.SERIES by romu.ai</div>
+      </div>
+      <div class="footer-company" style="margin-top:4px;">運営: romu.ai</div>
+    </div>
+    <div class="footer-copy">&copy; 2026 romu.ai All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>

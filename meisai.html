@@ -111,6 +111,70 @@
     .footer-link{font-size:11px;color:#777;text-decoration:none;}
     .footer-link:hover{color:#1C2B4A;}
     .footer-note{font-size:11px;color:#777;line-height:1.9;}
+    /* DEMO */
+    @keyframes ms-progress{from{width:0}to{width:100%}}
+    @keyframes ms-fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes ms-blink{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes ms-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.3)}50%{box-shadow:0 0 0 5px rgba(37,99,235,0)}}
+    .ms-window{border-radius:10px;overflow:hidden;border:.5px solid #e0ddd8;margin-bottom:12px;box-shadow:0 4px 24px rgba(0,0,0,.08);position:relative;}
+    .ms-titlebar{background:#2563eb;padding:7px 14px;display:flex;align-items:center;gap:10px;position:relative;}
+    .ms-dots{display:flex;gap:5px;}
+    .ms-dots span{width:9px;height:9px;border-radius:50%;}
+    .ms-dots span:nth-child(1){background:rgba(255,255,255,.4);}
+    .ms-dots span:nth-child(2){background:rgba(255,255,255,.3);}
+    .ms-dots span:nth-child(3){background:rgba(255,255,255,.2);}
+    .ms-url{font-size:10px;color:rgba(255,255,255,.7);background:rgba(255,255,255,.15);padding:3px 14px;border-radius:3px;flex:1;text-align:center;}
+    .ms-live{display:flex;align-items:center;gap:5px;font-size:9px;color:white;font-weight:500;}
+    .ms-live-dot{width:6px;height:6px;border-radius:50%;background:white;animation:ms-blink 1.2s ease-in-out infinite;}
+    .ms-pbar{position:absolute;bottom:0;left:0;height:2px;background:rgba(255,255,255,.1);width:100%;}
+    .ms-pfill{height:100%;background:white;animation:ms-progress 5s linear;}
+    .ms-app{display:flex;height:400px;background:#f3f4f6;}
+    .ms-sidebar{width:155px;background:white;padding:0;flex-shrink:0;border-right:1px solid #e5e7eb;}
+    .ms-side-title{padding:14px 12px 10px;font-size:13px;font-weight:700;color:#1e40af;border-bottom:1px solid #e5e7eb;}
+    .ms-nav-item{padding:8px 12px;font-size:10.5px;color:#6b7280;cursor:pointer;border-left:2px solid transparent;transition:all .2s;}
+    .ms-nav-item:hover{color:#1e40af;background:#eff6ff;}
+    .ms-nav-item.active{background:#dbeafe;color:#1e40af;font-weight:700;border-left-color:#2563eb;}
+    .ms-main{flex:1;padding:16px 20px;overflow-y:auto;color:#1f2937;}
+    .ms-scene{display:none;}
+    .ms-scene .ms-anim{opacity:0;animation:ms-fadeUp .5s ease forwards;}
+    .ms-scene .ms-anim:nth-child(1){animation-delay:.1s}
+    .ms-scene .ms-anim:nth-child(2){animation-delay:.3s}
+    .ms-scene .ms-anim:nth-child(3){animation-delay:.5s}
+    .ms-scene .ms-anim:nth-child(4){animation-delay:.7s}
+    .ms-ptitle{font-size:15px;font-weight:700;color:#1e293b;margin-bottom:12px;}
+    .ms-stats{display:flex;gap:8px;margin-bottom:12px;}
+    .ms-stat{flex:1;background:white;border-radius:8px;padding:10px 12px;border:1px solid #e5e7eb;}
+    .ms-stat-label{font-size:9px;color:#9ca3af;margin-bottom:3px;}
+    .ms-stat-val{font-size:18px;font-weight:700;color:#1e293b;}
+    .ms-stat-val.blue{color:#2563eb;}
+    .ms-stat-val.green{color:#16a34a;}
+    .ms-stat-val.amber{color:#d97706;}
+    .ms-card{background:white;border-radius:8px;padding:12px 14px;margin-bottom:10px;border:1px solid #e5e7eb;}
+    .ms-card-title{font-size:10px;font-weight:700;color:#6b7280;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #e5e7eb;letter-spacing:.05em;}
+    .ms-tbl{width:100%;border-collapse:collapse;font-size:10px;}
+    .ms-tbl th{padding:5px 6px;background:#f9fafb;color:#6b7280;font-weight:600;text-align:left;border-bottom:1px solid #e5e7eb;font-size:9px;}
+    .ms-tbl td{padding:5px 6px;border-bottom:1px solid #f3f4f6;color:#374151;}
+    .ms-tbl td.r{text-align:right;}
+    .ms-badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:8px;font-weight:700;}
+    .ms-badge.green{background:#dcfce7;color:#16a34a;}
+    .ms-badge.blue{background:#dbeafe;color:#2563eb;}
+    .ms-badge.amber{background:#fef3c7;color:#d97706;}
+    .ms-badge.gray{background:#f3f4f6;color:#9ca3af;}
+    .ms-map-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;padding:6px 10px;background:white;border:1px solid #e5e7eb;border-radius:6px;font-size:10px;}
+    .ms-map-from{flex:1;color:#6b7280;font-family:monospace;font-size:9px;background:#f9fafb;padding:3px 8px;border-radius:3px;}
+    .ms-map-arrow{color:#d1d5db;font-size:12px;}
+    .ms-map-to{flex:1;color:#1e40af;font-weight:600;font-size:10px;}
+    .ms-map-cat{font-size:8px;padding:1px 6px;border-radius:2px;background:#dbeafe;color:#2563eb;}
+    .ms-slip{background:white;border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-bottom:10px;}
+    .ms-slip-header{text-align:center;border:1.5px solid #1e293b;padding:4px;font-size:12px;font-weight:700;letter-spacing:4px;margin-bottom:10px;color:#1e293b;}
+    .ms-slip-row{display:flex;justify-content:space-between;font-size:10px;padding:2px 0;color:#374151;}
+    .ms-slip-section{font-size:9px;font-weight:700;color:#2563eb;margin:6px 0 3px;padding-bottom:2px;border-bottom:1px solid #dbeafe;}
+    .ms-slip-total{font-size:12px;font-weight:700;color:#1e293b;text-align:right;margin-top:6px;padding-top:4px;border-top:1.5px solid #1e293b;}
+    .ms-controls{display:flex;gap:5px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;}
+    .ms-ctrl-btn{padding:5px 12px;border:.5px solid #e0ddd8;border-radius:4px;font-size:10px;cursor:pointer;background:white;color:#777;font-family:'Noto Sans JP',sans-serif;transition:all .2s;}
+    .ms-ctrl-btn:hover{border-color:#1C2B4A;color:#1C2B4A;}
+    .ms-ctrl-btn.active{background:#1C2B4A;color:white;border-color:#1C2B4A;}
+
     @media(max-width:768px){
       .nav{padding:16px 20px;}
       .hero{padding:36px 24px 32px;}
@@ -123,6 +187,15 @@
       .flow-arrow{display:none;}
       .support-box{flex-direction:column;}
       .cta{padding:36px 20px;}
+      .ms-app{flex-direction:column;height:auto;min-height:440px;}
+      .ms-sidebar{width:100%;display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid #e5e7eb;}
+      .ms-side-title{display:none;}
+      .ms-nav-item{white-space:nowrap;padding:7px 10px;border-left:none;border-bottom:2px solid transparent;font-size:9px;}
+      .ms-nav-item.active{border-left:none;border-bottom-color:#2563eb;}
+      .ms-stats{flex-wrap:wrap;}
+      .ms-stat{min-width:calc(50% - 4px);}
+      .ms-controls{gap:4px;}
+      .ms-ctrl-btn{font-size:9px;padding:4px 8px;}
       .cmp-tbl{font-size:10px;}
       .cmp-tbl th,.cmp-tbl td{padding:6px 8px;}
       .footer{padding:24px 20px;flex-direction:column;text-align:center;}
@@ -222,6 +295,218 @@
         <div class="flow-step"><div class="flow-num">05</div><div class="flow-name">台帳出力</div><div class="flow-sub">PDF・CSV</div></div>
       </div>
     </div>
+
+    <!-- DEMO -->
+    <div class="sl"><div class="sl-text">LIVE DEMO</div><div class="sl-line"></div></div>
+    <div style="text-align:center;margin-bottom:14px;">
+      <div style="font-family:'Shippori Mincho',serif;font-size:18px;font-weight:500;color:#1C2B4A;margin-bottom:4px;">実際の管理画面をご覧ください</div>
+      <div style="font-size:11px;color:#777;">主要機能を自動再生でご紹介します</div>
+    </div>
+    <div class="ms-window">
+      <div class="ms-titlebar">
+        <div class="ms-dots"><span></span><span></span><span></span></div>
+        <div class="ms-url">meisai.romu.ai</div>
+        <div class="ms-live"><span class="ms-live-dot"></span>デモ再生中</div>
+        <div class="ms-pbar"><div class="ms-pfill" id="msProgress"></div></div>
+      </div>
+      <div class="ms-app">
+        <div class="ms-sidebar">
+          <div class="ms-side-title">Tonos-Meisai</div>
+          <div class="ms-nav-item" data-scene="0">📊 ダッシュボード</div>
+          <div class="ms-nav-item" data-scene="1">📎 CSVマッピング</div>
+          <div class="ms-nav-item" data-scene="2">📄 給与明細一覧</div>
+          <div class="ms-nav-item" data-scene="3">👤 従業員画面</div>
+          <div class="ms-nav-item" data-scene="4">📒 賃金台帳</div>
+        </div>
+        <div class="ms-main">
+
+          <!-- Scene 0: Dashboard -->
+          <div class="ms-scene" data-index="0">
+            <div class="ms-ptitle ms-anim">📊 管理ダッシュボード</div>
+            <div class="ms-stats ms-anim">
+              <div class="ms-stat"><div class="ms-stat-label">従業員数</div><div class="ms-stat-val">24名</div></div>
+              <div class="ms-stat"><div class="ms-stat-label">今月配信済</div><div class="ms-stat-val green">22名</div></div>
+              <div class="ms-stat"><div class="ms-stat-label">未確認</div><div class="ms-stat-val amber">2名</div></div>
+              <div class="ms-stat"><div class="ms-stat-label">賞与配信</div><div class="ms-stat-val blue">次回 6月</div></div>
+            </div>
+            <div class="ms-card ms-anim">
+              <div class="ms-card-title">2026年3月 配信状況</div>
+              <table class="ms-tbl">
+                <thead><tr><th>部門</th><th>人数</th><th>配信済</th><th>確認済</th><th>ステータス</th></tr></thead>
+                <tbody>
+                  <tr><td>営業部</td><td class="r">8名</td><td class="r">8名</td><td class="r">8名</td><td><span class="ms-badge green">完了</span></td></tr>
+                  <tr><td>製造部</td><td class="r">10名</td><td class="r">10名</td><td class="r">8名</td><td><span class="ms-badge amber">2名未確認</span></td></tr>
+                  <tr><td>管理部</td><td class="r">6名</td><td class="r">4名</td><td class="r">4名</td><td><span class="ms-badge blue">配信中</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Scene 1: CSV Mapping -->
+          <div class="ms-scene" data-index="1">
+            <div class="ms-ptitle ms-anim">📎 CSVマッピング設定</div>
+            <div class="ms-card ms-anim">
+              <div class="ms-card-title">汎用CSVマッピング — どの給与ソフトにも対応</div>
+              <div style="font-size:9px;color:#9ca3af;margin-bottom:8px;">CSVのヘッダー行を指定するだけで、項目を自動分類します（行ベース・列ベース両対応）</div>
+              <div class="ms-map-row" style="animation:ms-pulse 2.5s infinite;">
+                <div class="ms-map-from">基本給</div>
+                <div class="ms-map-arrow">→</div>
+                <div class="ms-map-to">基本給</div>
+                <div class="ms-map-cat">支給</div>
+              </div>
+              <div class="ms-map-row">
+                <div class="ms-map-from">残業手当</div>
+                <div class="ms-map-arrow">→</div>
+                <div class="ms-map-to">時間外手当</div>
+                <div class="ms-map-cat">支給</div>
+              </div>
+              <div class="ms-map-row">
+                <div class="ms-map-from">健康保険</div>
+                <div class="ms-map-arrow">→</div>
+                <div class="ms-map-to">健康保険料</div>
+                <div class="ms-map-cat">控除</div>
+              </div>
+              <div class="ms-map-row">
+                <div class="ms-map-from">所得税</div>
+                <div class="ms-map-arrow">→</div>
+                <div class="ms-map-to">源泉所得税</div>
+                <div class="ms-map-cat">控除</div>
+              </div>
+              <div class="ms-map-row">
+                <div class="ms-map-from">出勤日数</div>
+                <div class="ms-map-arrow">→</div>
+                <div class="ms-map-to">出勤日数</div>
+                <div class="ms-map-cat">勤怠</div>
+              </div>
+            </div>
+            <div style="font-size:9px;color:#6b7280;text-align:center;" class="ms-anim">※ freee・弥生・MFクラウド・財務応援R4・Excelなど、どの形式でも取り込み可能</div>
+          </div>
+
+          <!-- Scene 2: Payslip List -->
+          <div class="ms-scene" data-index="2">
+            <div class="ms-ptitle ms-anim">📄 給与明細一覧 — 2026年3月</div>
+            <div class="ms-card ms-anim">
+              <div class="ms-card-title">従業員別 明細・配信状況</div>
+              <table class="ms-tbl">
+                <thead><tr><th>ID</th><th>氏名</th><th>部門</th><th>支給額</th><th>控除額</th><th>差引支給</th><th>配信</th></tr></thead>
+                <tbody>
+                  <tr><td>001</td><td>佐藤 太郎</td><td>営業部</td><td class="r">&yen;350,000</td><td class="r">&yen;82,400</td><td class="r" style="font-weight:700;">&yen;267,600</td><td><span class="ms-badge green">配信済</span></td></tr>
+                  <tr><td>002</td><td>田中 花子</td><td>営業部</td><td class="r">&yen;280,000</td><td class="r">&yen;65,200</td><td class="r" style="font-weight:700;">&yen;214,800</td><td><span class="ms-badge green">配信済</span></td></tr>
+                  <tr><td>003</td><td>鈴木 一郎</td><td>製造部</td><td class="r">&yen;320,000</td><td class="r">&yen;76,800</td><td class="r" style="font-weight:700;">&yen;243,200</td><td><span class="ms-badge green">配信済</span></td></tr>
+                  <tr><td>004</td><td>山本 美咲</td><td>管理部</td><td class="r">&yen;300,000</td><td class="r">&yen;71,000</td><td class="r" style="font-weight:700;">&yen;229,000</td><td><span class="ms-badge blue">配信中</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;gap:8px;" class="ms-anim">
+              <div style="padding:5px 12px;background:#2563eb;color:white;border-radius:4px;font-size:9px;font-weight:600;animation:ms-pulse 2s infinite;">一括配信</div>
+              <div style="padding:5px 12px;background:white;border:1px solid #e5e7eb;border-radius:4px;font-size:9px;color:#6b7280;">PDF出力</div>
+              <div style="padding:5px 12px;background:white;border:1px solid #e5e7eb;border-radius:4px;font-size:9px;color:#6b7280;">印刷</div>
+            </div>
+          </div>
+
+          <!-- Scene 3: Employee View -->
+          <div class="ms-scene" data-index="3">
+            <div class="ms-ptitle ms-anim">👤 従業員画面 — PC・スマホから確認</div>
+            <div class="ms-anim" style="background:white;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+              <!-- Header info -->
+              <div style="padding:8px 12px;border-bottom:1px solid #e5e7eb;font-size:9px;display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+                <div><span style="color:#9ca3af;">対象年月:</span> <span style="font-weight:500;">2026年3月</span></div>
+                <div style="text-align:right;"><span style="color:#9ca3af;">会社名:</span> <span style="font-weight:500;">株式会社サンプル</span></div>
+                <div><span style="color:#9ca3af;">社員名:</span> <span style="font-weight:500;">佐藤 太郎</span></div>
+                <div style="text-align:right;"><span style="color:#9ca3af;">部署名:</span> <span style="font-weight:500;">営業部</span></div>
+              </div>
+              <!-- 4-column grid -->
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+                <!-- 勤怠 -->
+                <div style="border-right:1px solid #e5e7eb;">
+                  <div style="background:#0D2137;color:#B8976C;text-align:center;padding:4px;font-size:9px;font-weight:500;">勤怠</div>
+                  <div style="padding:4px 6px;font-size:8px;">
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>出勤日数</span><span>21</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>有給日数</span><span>1</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>欠勤日数</span><span>0</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>残業時間</span><span>22:30</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>遅刻回数</span><span>0</span></div>
+                  </div>
+                </div>
+                <!-- 支給 -->
+                <div style="border-right:1px solid #e5e7eb;">
+                  <div style="background:#0D2137;color:#B8976C;text-align:center;padding:4px;font-size:9px;font-weight:500;">支給</div>
+                  <div style="padding:4px 6px;font-size:8px;">
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>基本給</span><span>&yen;250,000</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>時間外手当</span><span>&yen;45,000</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>通勤手当</span><span>&yen;15,000</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>住宅手当</span><span>&yen;40,000</span></div>
+                  </div>
+                </div>
+                <!-- 控除 -->
+                <div style="border-right:1px solid #e5e7eb;">
+                  <div style="background:#0D2137;color:#B8976C;text-align:center;padding:4px;font-size:9px;font-weight:500;">控除</div>
+                  <div style="padding:4px 6px;font-size:8px;">
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>健康保険</span><span>&yen;16,400</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>厚生年金</span><span>&yen;32,000</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>雇用保険</span><span>&yen;2,100</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #f3f4f6;"><span>源泉所得税</span><span>&yen;18,500</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span>住民税</span><span>&yen;13,400</span></div>
+                  </div>
+                </div>
+                <!-- 合計 -->
+                <div>
+                  <div style="background:#B8976C;color:#0D2137;text-align:center;padding:4px;font-size:9px;font-weight:500;">合計</div>
+                  <div style="padding:4px 6px;font-size:8px;background:#FBF6EE;">
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #E8DFD0;color:#8B6B42;"><span>支給合計</span><span>&yen;350,000</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #E8DFD0;color:#8B6B42;"><span>控除合計</span><span>&yen;82,400</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;color:#0D2137;font-weight:700;font-size:9px;"><span>差引支給額</span><span>&yen;267,600</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="font-size:9px;color:#9ca3af;text-align:center;margin-top:6px;" class="ms-anim">従業員がログインして自分の明細をいつでも確認可能（PC・スマホ対応）</div>
+          </div>
+
+          <!-- Scene 4: Wage Ledger -->
+          <div class="ms-scene" data-index="4">
+            <div class="ms-ptitle ms-anim">📒 賃金台帳</div>
+            <div class="ms-card ms-anim">
+              <div class="ms-card-title">賃金台帳 — 佐藤 太郎（2026年1月〜3月）</div>
+              <table class="ms-tbl">
+                <thead><tr><th>月</th><th>基本給</th><th>諸手当</th><th>総支給</th><th>社保</th><th>税金</th><th>差引支給</th></tr></thead>
+                <tbody>
+                  <tr><td>1月</td><td class="r">&yen;250,000</td><td class="r">&yen;85,000</td><td class="r">&yen;335,000</td><td class="r">&yen;50,500</td><td class="r">&yen;31,900</td><td class="r" style="font-weight:700;">&yen;252,600</td></tr>
+                  <tr><td>2月</td><td class="r">&yen;250,000</td><td class="r">&yen;90,000</td><td class="r">&yen;340,000</td><td class="r">&yen;50,500</td><td class="r">&yen;31,900</td><td class="r" style="font-weight:700;">&yen;257,600</td></tr>
+                  <tr><td>3月</td><td class="r">&yen;250,000</td><td class="r">&yen;100,000</td><td class="r">&yen;350,000</td><td class="r">&yen;50,500</td><td class="r">&yen;31,900</td><td class="r" style="font-weight:700;">&yen;267,600</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="display:flex;gap:8px;" class="ms-anim">
+              <div style="padding:5px 12px;background:#2563eb;color:white;border-radius:4px;font-size:9px;font-weight:600;">PDF出力</div>
+              <div style="padding:5px 12px;background:white;border:1px solid #e5e7eb;border-radius:4px;font-size:9px;color:#6b7280;">Excel出力</div>
+            </div>
+            <div style="font-size:9px;color:#9ca3af;margin-top:6px;" class="ms-anim">※ 期間・従業員を指定して賃金台帳を出力。税務申告や労基署提出にそのまま使えます</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="ms-controls">
+      <button class="ms-ctrl-btn" data-scene="0">ダッシュボード</button>
+      <button class="ms-ctrl-btn" data-scene="1">CSVマッピング</button>
+      <button class="ms-ctrl-btn" data-scene="2">給与明細</button>
+      <button class="ms-ctrl-btn" data-scene="3">従業員画面</button>
+      <button class="ms-ctrl-btn" data-scene="4">賃金台帳</button>
+    </div>
+    <script>
+    (function(){
+      var c=0,t=5,tm;
+      var sc=document.querySelectorAll('.ms-scene'),nv=document.querySelectorAll('.ms-nav-item'),cb=document.querySelectorAll('.ms-ctrl-btn'),pg=document.getElementById('msProgress');
+      function ra(s){s.querySelectorAll('.ms-anim').forEach(function(e){e.style.animation='none';e.offsetHeight;e.style.animation='';});}
+      function rp(){pg.style.animation='none';pg.offsetHeight;pg.style.animation='ms-progress 5s linear';}
+      function sh(i){c=i;sc.forEach(function(s,j){s.style.display=j===i?'block':'none';});nv.forEach(function(n,j){n.classList.toggle('active',j===i);});cb.forEach(function(b,j){b.classList.toggle('active',j===i);});ra(sc[i]);rp();}
+      function au(){clearInterval(tm);tm=setInterval(function(){sh((c+1)%t);},5000);}
+      nv.forEach(function(n){n.addEventListener('click',function(){sh(parseInt(n.dataset.scene));au();});});
+      cb.forEach(function(b){b.addEventListener('click',function(){sh(parseInt(b.dataset.scene));au();});});
+      sh(0);au();
+    })();
+    </script>
 
     <div class="sl"><div class="sl-text">FEATURES</div><div class="sl-line"></div></div>
     <div class="fg3">
