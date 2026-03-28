@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | dentyo</title>
+  <meta name="description" content="dentyoへのお問い合わせはこちらから。導入のご相談、機能に関するご質問など、お気軽にお問い合わせください。">
+  <link rel="canonical" href="https://romu.ai/dentyo/contact">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#FAFAFA;font-family:'Noto Sans JP',sans-serif;color:#1A1A1A;}
+    .wrap{max-width:900px;margin:0 auto;background:white;min-height:100vh;display:flex;flex-direction:column;}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:.5px solid #e8e8e8;}
+    .nav-left{display:flex;align-items:baseline;gap:4px;}
+    .nav-back{font-size:11px;color:#aaa;text-decoration:none;}
+    .nav-cta{background:#1A1A1A;color:white;font-size:11px;padding:8px 18px;border-radius:2px;text-decoration:none;letter-spacing:.05em;}
+
+    .hero{padding:48px 48px 32px;border-bottom:.5px solid #e8e8e8;text-align:center;}
+    .hero h1{font-size:24px;font-weight:700;margin-bottom:8px;}
+    .hero p{font-size:13px;color:#777;font-weight:300;}
+
+    .content{padding:64px 48px;flex:1;}
+
+    .form-intro{font-size:13px;color:#555;line-height:2;font-weight:300;max-width:520px;margin:0 auto 48px;text-align:center;}
+
+    .form-group{margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
+    .form-label{display:block;font-size:11px;font-weight:500;letter-spacing:.08em;color:#1A1A1A;margin-bottom:8px;}
+    .form-label .required{font-size:9px;color:white;background:#1A1A1A;padding:2px 6px;border-radius:1px;margin-left:6px;vertical-align:middle;letter-spacing:.05em;}
+    .form-label .optional{font-size:9px;color:#aaa;border:.5px solid #ddd;padding:2px 6px;border-radius:1px;margin-left:6px;vertical-align:middle;letter-spacing:.05em;}
+
+    .form-input,.form-select,.form-textarea{
+      width:100%;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#1A1A1A;
+      border:.5px solid #ddd;border-radius:2px;padding:12px 14px;
+      background:white;transition:border-color .2s;outline:none;font-weight:300;
+    }
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#1A1A1A;}
+    .form-input::placeholder,.form-textarea::placeholder{color:#ccc;}
+    .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23aaa' stroke-width='1'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+    .form-textarea{resize:vertical;min-height:140px;line-height:1.9;}
+
+    .form-submit{max-width:520px;margin:40px auto 0;text-align:center;}
+    .btn-submit{
+      display:inline-block;background:#1A1A1A;color:white;font-family:'Noto Sans JP',sans-serif;
+      font-size:13px;font-weight:500;padding:14px 48px;border:none;border-radius:2px;
+      cursor:pointer;letter-spacing:.05em;transition:opacity .2s;
+    }
+    .btn-submit:hover{opacity:.8;}
+    .btn-submit:disabled{opacity:.4;cursor:not-allowed;}
+    .form-note{font-size:11px;color:#aaa;margin-top:12px;}
+
+    .form-success{display:none;max-width:520px;margin:0 auto;text-align:center;padding:64px 0;}
+    .form-success .check{width:48px;height:48px;border:2px solid #1A1A1A;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;}
+    .form-success .check svg{width:20px;height:20px;}
+    .form-success h2{font-size:18px;font-weight:700;margin-bottom:12px;}
+    .form-success p{font-size:13px;color:#555;line-height:2;font-weight:300;}
+    .form-success .back-link{display:inline-block;margin-top:24px;font-size:12px;color:#1A1A1A;border-bottom:.5px solid #1A1A1A;text-decoration:none;padding-bottom:1px;}
+
+    .footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:#FAFAFA;border-top:.5px solid #e8e8e8;}
+    .footer-left{display:flex;align-items:baseline;gap:8px;}
+    .footer-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#1A1A1A;}
+    .footer-series{font-size:10px;color:#aaa;letter-spacing:.1em;}
+    .footer-copy{font-size:11px;color:#aaa;}
+
+    @media(max-width:700px){
+      .nav{padding:16px 20px;}
+      .hero{padding:32px 20px 24px;}
+      .content{padding:40px 20px;}
+      .footer{padding:20px;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <div class="nav-left">
+      <img src="/dentyologo.png" alt="dentyo" style="height:40px;">
+    </div>
+    <a class="nav-back" href="/dentyo">← 製品ページ</a>
+    <a class="nav-cta" href="https://dentyo.romu.ai">無料で試す</a>
+  </nav>
+
+  <div class="hero">
+    <h1>お問い合わせ</h1>
+    <p>導入のご相談・ご質問など、お気軽にどうぞ</p>
+  </div>
+
+  <div class="content">
+
+    <p class="form-intro">
+      通常1営業日以内にご返信いたします。<br>
+      お急ぎの場合は <a href="mailto:contact@romu.ai" style="color:#185FA5;">contact@romu.ai</a> へ直接ご連絡ください。
+    </p>
+
+    <form id="contactForm" action="https://formsubmit.co/contact@romu.ai" method="POST">
+      <input type="hidden" name="_subject" value="【dentyo】お問い合わせ">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_next" value="https://www.romu.ai/dentyo/contact#thanks">
+
+      <div class="form-group">
+        <label class="form-label">お名前 <span class="required">必須</span></label>
+        <input class="form-input" type="text" name="name" required placeholder="山田 太郎">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">会社名・屋号 <span class="optional">任意</span></label>
+        <input class="form-input" type="text" name="company" placeholder="株式会社○○">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span class="required">必須</span></label>
+        <input class="form-input" type="email" name="email" required placeholder="info@example.com">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">お問い合わせ種別 <span class="required">必須</span></label>
+        <select class="form-select" name="category" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="導入相談">導入のご相談</option>
+          <option value="機能について">機能について</option>
+          <option value="料金について">料金について</option>
+          <option value="不具合報告">不具合のご報告</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">お問い合わせ内容 <span class="required">必須</span></label>
+        <textarea class="form-textarea" name="message" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button class="btn-submit" type="submit">送信する</button>
+        <div class="form-note">送信後、確認メールが届きます</div>
+      </div>
+
+    </form>
+
+    <div class="form-success" id="successMsg">
+      <div class="check">
+        <svg viewBox="0 0 20 20" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 10 8 14 16 6"/>
+        </svg>
+      </div>
+      <h2>送信が完了しました</h2>
+      <p>お問い合わせありがとうございます。<br>1営業日以内にご返信いたします。</p>
+      <a class="back-link" href="/dentyo">← 製品ページに戻る</a>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div>
+      <div class="footer-left">
+        <div class="footer-logo">dentyo</div>
+        <div class="footer-series">TONOS.SERIES by romu.ai</div>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 romu.ai All rights reserved.</div>
+  </footer>
+
+</div>
+
+<script>
+// Show success message if redirected back with #thanks
+if (window.location.hash === '#thanks') {
+  document.getElementById('contactForm').style.display = 'none';
+  document.querySelector('.form-intro').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+document.getElementById('contactForm').addEventListener('submit', function() {
+  var btn = this.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+});
+</script>
+</body>
+</html>

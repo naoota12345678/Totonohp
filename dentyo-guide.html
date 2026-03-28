@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dentyo 導入ガイド | 撮って、捨てる。</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#FAFAFA;font-family:'Noto Sans JP',sans-serif;color:#1A1A1A;}
+    .wrap{max-width:900px;margin:0 auto;background:white;}
+
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:.5px solid #e8e8e8;}
+    .nav-left{display:flex;align-items:baseline;gap:4px;}
+    .nav-back{font-size:11px;color:#aaa;text-decoration:none;}
+    .nav-cta{background:#1A1A1A;color:white;font-size:11px;padding:8px 18px;border-radius:2px;text-decoration:none;letter-spacing:.05em;}
+
+    .hero{padding:48px 48px 32px;border-bottom:.5px solid #e8e8e8;text-align:center;}
+    .hero h1{font-size:24px;font-weight:700;margin-bottom:8px;}
+    .hero p{font-size:13px;color:#777;font-weight:300;}
+
+    .content{padding:48px;}
+
+    .step{margin-bottom:48px;}
+    .step-header{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+    .step-num{width:36px;height:36px;background:#1A1A1A;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;}
+    .step-title{font-size:18px;font-weight:700;}
+    .step-body{margin-left:52px;}
+    .step-body p{font-size:13px;color:#555;line-height:2;font-weight:300;margin-bottom:12px;}
+    .step-body ol,.step-body ul{font-size:13px;color:#555;line-height:2.2;font-weight:300;margin-left:20px;margin-bottom:12px;}
+    .step-body li{margin-bottom:4px;}
+
+    .note{background:#f9f9f9;border-left:3px solid #1A1A1A;padding:16px 20px;margin:16px 0;font-size:12px;color:#555;line-height:1.9;}
+    .note strong{color:#1A1A1A;}
+
+    .warn{background:#FFF8F0;border-left:3px solid #E8A040;padding:16px 20px;margin:16px 0;font-size:12px;color:#555;line-height:1.9;}
+
+    .divider{height:.5px;background:#e8e8e8;margin:48px 0;}
+
+    .section-label{font-size:10px;letter-spacing:.15em;color:#aaa;margin-bottom:24px;}
+
+    .faq{margin-bottom:24px;}
+    .faq-q{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:6px;}
+    .faq-a{font-size:12px;color:#555;line-height:1.9;font-weight:300;margin-left:16px;}
+
+    .footer{padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;background:#FAFAFA;border-top:.5px solid #e8e8e8;}
+    .footer-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#1A1A1A;}
+    .footer-copy{font-size:11px;color:#aaa;}
+
+    @media(max-width:700px){
+      .nav{padding:16px 20px;}
+      .hero{padding:32px 20px 24px;}
+      .content{padding:32px 20px;}
+      .step-body{margin-left:0;margin-top:12px;}
+      .step-header{flex-wrap:wrap;}
+      .footer{padding:20px;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="nav">
+    <div class="nav-left">
+      <img src="/logo-nav.png" alt="dentyo" style="height:56px;">
+    </div>
+    <a class="nav-back" href="/dentyo">← 製品ページ</a>
+    <a class="nav-cta" href="/dentyo/contact">お問い合わせ</a>
+  </nav>
+
+  <div class="hero">
+    <h1>導入ガイド</h1>
+    <p>初めての方でも5分で始められます</p>
+  </div>
+
+  <div class="content">
+
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">Googleアカウントでログイン</div>
+      </div>
+      <div class="step-body">
+        <ol>
+          <li><a href="https://dentyo.romu.ai" style="color:#185FA5;">dentyo.romu.ai</a> にアクセス</li>
+          <li>「Googleでログイン」をタップ</li>
+          <li>お使いのGoogleアカウントを選択</li>
+        </ol>
+        <div class="warn">
+          <strong>LINEなどのアプリ内ブラウザからはログインできません。</strong><br>
+          ChromeまたはSafariで直接開いてください。
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">初期設定（セットアップウィザード）</div>
+      </div>
+      <div class="step-body">
+        <p>初回ログイン時に設定画面が表示されます。以下の3つを設定してください。</p>
+
+        <p><strong>会計ソフトの選択</strong></p>
+        <ul>
+          <li>お使いの会計ソフトを選択してください（freee / 弥生 / MFクラウド / 財務応援R4 / 汎用CSV）</li>
+          <li>わからない場合は「汎用CSV」を選んでおけばOKです</li>
+          <li>後から「設定」画面で変更できます</li>
+        </ul>
+
+        <p><strong>基本情報の入力</strong></p>
+        <ul>
+          <li>会社名・事業者名を入力</li>
+          <li>会計年度開始月を選択（個人事業主の場合は「1月」）</li>
+        </ul>
+
+        <p><strong>Google Driveの接続</strong></p>
+        <ul>
+          <li>「Google Driveを接続」ボタンをタップ</li>
+          <li>Googleの画面でアクセスを許可してください</li>
+          <li>許可すると自動でフォルダが作成されます</li>
+        </ul>
+
+        <div class="note">
+          <strong>Google Drive上に「acc」フォルダが作成されます。</strong><br>
+          この中に年度別・月別のフォルダが自動で整理されます。フォルダの削除や名前変更はしないでください。
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">レシートを撮影して保存</div>
+      </div>
+      <div class="step-body">
+        <ol>
+          <li>ダッシュボードの「レシート」をタップ</li>
+          <li>「撮影」ボタンでカメラが起動します</li>
+          <li>レシートを撮影 → 自動でGoogle Driveに保存されます</li>
+          <li>続けて何枚でも撮影できます</li>
+        </ol>
+
+        <p>複数枚まとめてアップロードしたい場合は「まとめて選択」をお使いください。</p>
+
+        <div class="note">
+          <strong>撮影のコツ</strong><br>
+          ・レシート全体がはっきり写るように撮影してください<br>
+          ・暗い場所やぶれた写真だと読み取り精度が下がります<br>
+          ・撮影後、「保存済み」と表示されたらレシートは捨ててOKです
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">AI読み取り処理</div>
+      </div>
+      <div class="step-body">
+        <ol>
+          <li>レシートを何枚か保存したら「まとめて読み取り処理」ボタンをタップ</li>
+          <li>AIが自動で読み取りを行います（店名・金額・日付・T番号・支払方法）</li>
+          <li>処理中にページを閉じても大丈夫です</li>
+          <li>処理結果が画面に表示されます</li>
+        </ol>
+
+        <div class="warn">
+          <strong>赤い文字（要確認）が出た場合</strong><br>
+          AIの読み取りに自信がないものです。Google Driveの「要確認」フォルダにコピーされていますので、内容を確認してください。
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title">Amazon注文の自動取得</div>
+      </div>
+      <div class="step-body">
+        <ol>
+          <li>ダッシュボードの「EC取得」をタップ</li>
+          <li>Amazonのログイン画面が表示されます</li>
+          <li>ログインすると注文データを自動で取得します</li>
+          <li>領収書PDFがGoogle Driveに自動保存されます</li>
+        </ol>
+
+        <div class="note">
+          <strong>Amazonのパスワードはdentyoに保存されません。</strong><br>
+          ブラウザ上でAmazonに直接ログインする仕組みです。
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title">CSV出力（税理士・会計ソフトへ）</div>
+      </div>
+      <div class="step-body">
+        <ol>
+          <li>「CSV出力」をタップ</li>
+          <li>出力したい期間を選択</li>
+          <li>CSVファイルがダウンロードされます</li>
+          <li>税理士に送る、または会計ソフトにインポートしてください</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div class="step-title">ホーム画面に追加（アプリのように使う）</div>
+      </div>
+      <div class="step-body">
+        <p><strong>iPhone（Safari）の場合：</strong></p>
+        <ol>
+          <li>Safariで dentyo.romu.ai を開く</li>
+          <li>画面下部の共有ボタン（□に↑）をタップ</li>
+          <li>「ホーム画面に追加」を選択</li>
+        </ol>
+
+        <p style="margin-top:16px;"><strong>Android（Chrome）の場合：</strong></p>
+        <ol>
+          <li>Chromeで dentyo.romu.ai を開く</li>
+          <li>右上の「︙」メニュー →「ホーム画面に追加」</li>
+        </ol>
+
+        <div class="note">
+          ホーム画面に追加すると、アプリのようにアドレスバーなしで使えます。レシートを撮る時にすぐ起動できて便利です。
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- FAQ -->
+    <div class="section-label">FAQ — よくある質問</div>
+
+    <div class="faq">
+      <div class="faq-q">Q. レシートはいつ捨てていいですか？</div>
+      <div class="faq-a">撮影後、画面に「保存済み」と表示されたら捨ててOKです。スキャナ保存法の要件に対応した形式でGoogle Driveに保存されています。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Q. Google Driveの容量は大丈夫ですか？</div>
+      <div class="faq-a">Googleアカウントの無料枠（15GB）で十分です。レシート画像は1枚あたり数MBなので、数千枚は保存できます。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Q. 複数の会社を管理できますか？</div>
+      <div class="faq-a">会社ごとに別のGoogleアカウントでログインしてください。それぞれのGoogle Driveに別々にデータが保存されます。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Q. dentyoをやめたらデータはどうなりますか？</div>
+      <div class="faq-a">データはすべてお客様のGoogle Driveに保存されているので、そのまま残ります。dentyoを解約してもデータに影響はありません。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Q. 設定を変更したい場合は？</div>
+      <div class="faq-a">画面上部の「設定」メニューから、会計ソフト・会社名・決算月などを変更できます。</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Q. 困った時はどうすればいいですか？</div>
+      <div class="faq-a"><a href="mailto:contact@romu.ai" style="color:#185FA5;">contact@romu.ai</a> までお気軽にご連絡ください。</div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">dentyo</div>
+    <div class="footer-copy">&copy; 2026 romu.ai All rights reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>
