@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/dentyo/contact", "destination": "/dentyo-contact.html" },
+    { "source": "/dentyo/guide", "destination": "/dentyo-guide.html" }
+  ],
   "headers": [
     {
       "source": "/sitemap.xml",
